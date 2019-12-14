@@ -7,7 +7,7 @@ Tools used in this project:
 
 * Database - SQLite3
 
-* Test Suite - [Capybara](https://github.com/teamcapybara/capybara) with [RSpec](https://github.com/rspec/rspec-rails)
+* Test Suite - [Capybara](https://github.com/teamcapybara/capybara) with [RSpec](https://github.com/rspec/rspec-rails), and [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
 
 * Authentication - [Devise](https://github.com/plataformatec/devise)
 
