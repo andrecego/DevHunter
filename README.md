@@ -11,5 +11,7 @@ Tools used in this project:
 
 * Authentication - [Devise](https://github.com/plataformatec/devise)
 
+* Formatting - [RuboCop](https://github.com/rubocop-hq/rubocop)
+
 # DevHunter
 This web application is my take on how to build a platform to connect employer and applicants.
