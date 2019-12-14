@@ -1,6 +1,6 @@
 pt-BR:
-  headhunters:
+  users:
     index:
-      hunter_area: 'Área do Headhunter'
+      user_area: 'Área do candidato'
       sign_up: 'Cadastrar'
       back: 'Voltar'
