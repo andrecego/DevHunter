@@ -4,5 +4,9 @@ pt-BR:
       new_job: Nova Vaga
     form:
       submit: Enviar
-    show:
+    job:
       job_for: Vaga para
+      not_disclosed: Não divulgado
+      wage: Salário
+    show:
+      back: Voltar
