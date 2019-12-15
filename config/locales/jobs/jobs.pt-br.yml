@@ -4,6 +4,5 @@ pt-BR:
       new_job: Nova Vaga
     form:
       submit: Enviar
-      wage: Salário
     show:
       job_for: Vaga para

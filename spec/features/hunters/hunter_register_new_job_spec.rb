@@ -10,8 +10,8 @@ feature 'Hunter register new job' do
     fill_in 'Título', with: 'Desenvolvedor Jr.'
     fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
     fill_in 'Habilidades desejadas', with: 'HTML, CSS, RSpec e Capybara'
-    fill_in 'Mínimo', with: '2499'
-    fill_in 'Máximo', with: '3001'
+    fill_in 'Salário Mínimo', with: '2499'
+    fill_in 'Salário Máximo', with: '3001'
     select 'Júnior', from: 'Nível'
     fill_in 'Data limite', with: '30/12/2019'
     fill_in 'Local', with: 'Av Paulista'
@@ -25,5 +25,18 @@ feature 'Hunter register new job' do
     expect(page).to have_content('Nível: Júnior')
     expect(page).to have_content('Data limite: 30/12/2019')
     expect(page).to have_content('Local: Av Paulista')
+  end
+
+  scenario 'and didnt fill in all the fields' do
+    visit new_job_path
+    fill_in 'Título', with: ''
+    click_on 'Enviar'
+
+    expect(page).to have_content('Algo deu errado')
+    expect(page).to have_content('Título não pode ficar em branco')
+    expect(page).to have_content('Descrição não pode ficar em branco')
+    expect(page).to have_content('Salário Mínimo não pode ficar em branco')
+    expect(page).to have_content('Salário Máximo não pode ficar em branco')
+    expect(page).to have_content('Data limite não pode ficar em branco')
   end
 end
