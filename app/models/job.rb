@@ -5,4 +5,13 @@ class Job < ApplicationRecord
                    manager: 25 }
   validates :title, :description, :min_wage, :max_wage, :deadline,
             presence: true
+  validates :min_wage, :max_wage, numericality: { greater_than: 0 }
+  validate :max_wage_cannot_be_less_than_min_wage
+
+  def max_wage_cannot_be_less_than_min_wage
+    return if max_wage.blank? || min_wage.blank?
+    return unless min_wage > max_wage
+
+    errors.add(:max_wage, 'não pode ser menor que Salário Mínimo')
+  end
 end

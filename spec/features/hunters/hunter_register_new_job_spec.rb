@@ -39,4 +39,38 @@ feature 'Hunter register new job' do
     expect(page).to have_content('Salário Máximo não pode ficar em branco')
     expect(page).to have_content('Data limite não pode ficar em branco')
   end
+
+  scenario 'and maximum wage > minimum wage' do
+    visit new_job_path
+    fill_in 'Título', with: 'Desenvolvedor Jr.'
+    fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
+    fill_in 'Habilidades desejadas', with: 'HTML, CSS, RSpec e Capybara'
+    fill_in 'Salário Mínimo', with: '3399'
+    fill_in 'Salário Máximo', with: '2199'
+    select 'Júnior', from: 'Nível'
+    fill_in 'Data limite', with: '30/12/2019'
+    fill_in 'Local', with: 'Av Paulista'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Algo deu errado')
+    expect(page).to have_content('Salário Máximo não pode ser menor que ' \
+                                 'Salário Mínimo')
+  end
+
+  scenario 'and wages are negative' do
+    visit new_job_path
+    fill_in 'Título', with: 'Desenvolvedor Jr.'
+    fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
+    fill_in 'Habilidades desejadas', with: 'HTML, CSS, RSpec e Capybara'
+    fill_in 'Salário Mínimo', with: '-10'
+    fill_in 'Salário Máximo', with: '-1'
+    select 'Júnior', from: 'Nível'
+    fill_in 'Data limite', with: '30/12/2019'
+    fill_in 'Local', with: 'Av Paulista'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Algo deu errado')
+    expect(page).to have_content('Salário Mínimo deve ser maior que 0')
+    expect(page).to have_content('Salário Máximo deve ser maior que 0')
+  end
 end
