@@ -1,0 +1,21 @@
+pt-BR:
+  activerecord:
+    model:
+      job: Vaga
+    attributes:
+      job:
+        title: Título
+        description: Descrição
+        skills: Habilidades desejadas
+        min_wage: Mínimo
+        max_wage: Máximo
+        deadline: Data limite
+        location: Local
+        position: Nível
+        positions:
+          intern: Estagiário
+          junior: Júnior
+          middle: Pleno
+          senior: Sênior
+          expert: Especialista
+          manager: Diretor

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :headhunters, only: [:index]
   resources :users, only: [:index]
+  resources :jobs, only: [:new, :create, :show]
 end

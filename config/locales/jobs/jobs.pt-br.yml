@@ -1,0 +1,9 @@
+pt-BR:
+  jobs:
+    new:
+      new_job: Nova Vaga
+    form:
+      submit: Enviar
+      wage: Salário
+    show:
+      job_for: Vaga para
