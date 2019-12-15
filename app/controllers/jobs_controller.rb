@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class JobsController < ApplicationController
+  before_action :authenticate_only_hunter
   def new
     @job = Job.new
   end

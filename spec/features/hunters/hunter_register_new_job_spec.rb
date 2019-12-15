@@ -4,8 +4,11 @@ require 'rails_helper'
 
 feature 'Hunter register new job' do
   scenario 'successfully' do
+    hunter = FactoryBot.create(:hunter)
+    login_as(hunter, scope: :hunter)
+
     visit root_path
-    click_on 'Headhunter'
+    click_on 'Área do Headhunter'
     click_on 'Cadastrar nova vaga'
     fill_in 'Título', with: 'Desenvolvedor Jr.'
     fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
@@ -29,6 +32,9 @@ feature 'Hunter register new job' do
   end
 
   scenario 'and didnt fill in all the fields' do
+    hunter = FactoryBot.create(:hunter)
+    login_as(hunter, scope: :hunter)
+
     visit new_job_path
     fill_in 'Título', with: ''
     click_on 'Enviar'
@@ -42,6 +48,9 @@ feature 'Hunter register new job' do
   end
 
   scenario 'and maximum wage > minimum wage' do
+    hunter = FactoryBot.create(:hunter)
+    login_as(hunter, scope: :hunter)
+
     visit new_job_path
     fill_in 'Título', with: 'Desenvolvedor Jr.'
     fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
@@ -59,6 +68,9 @@ feature 'Hunter register new job' do
   end
 
   scenario 'and wages are negative' do
+    hunter = FactoryBot.create(:hunter)
+    login_as(hunter, scope: :hunter)
+
     visit new_job_path
     fill_in 'Título', with: 'Desenvolvedor Jr.'
     fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
@@ -76,6 +88,9 @@ feature 'Hunter register new job' do
   end
 
   scenario 'and filled in a date in the past' do
+    hunter = FactoryBot.create(:hunter)
+    login_as(hunter, scope: :hunter)
+
     visit new_job_path
     fill_in 'Título', with: 'Desenvolvedor Jr.'
     fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
@@ -89,5 +104,26 @@ feature 'Hunter register new job' do
 
     expect(page).to have_content('Algo deu errado')
     expect(page).to have_content('Data limite não pode ser menor que hoje')
+  end
+
+  scenario 'headhunter is logged in' do
+    hunter = FactoryBot.create(:hunter)
+    login_as(hunter, scope: :hunter)
+
+    visit root_path
+    click_on 'Headhunter'
+
+    expect(page).to have_content('Cadastrar nova vaga')
+  end
+
+  scenario 'user is logged in' do
+    user = FactoryBot.create(:user)
+    login_as(user, scope: :user)
+
+    visit new_job_path
+
+    expect(page).to have_content('Você precisa ser um Headhunter para ver' \
+                                 ' esta área')
+    expect(page).to_not have_content('Cadastrar nova vaga')
   end
 end
