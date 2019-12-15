@@ -13,7 +13,7 @@ feature 'Hunter register new job' do
     fill_in 'Salário Mínimo', with: '2499'
     fill_in 'Salário Máximo', with: '3001'
     select 'Júnior', from: 'Nível'
-    fill_in 'Data limite', with: '30/12/2019'
+    fill_in 'Data limite', with: Date.tomorrow
     fill_in 'Local', with: 'Av Paulista'
     click_on 'Enviar'
 
@@ -23,7 +23,8 @@ feature 'Hunter register new job' do
     expect(page).to have_content('HTML, CSS, RSpec e Capybara')
     expect(page).to have_content('R$ 2.499,00 - R$ 3.001,00')
     expect(page).to have_content('Nível: Júnior')
-    expect(page).to have_content('Data limite: 30/12/2019')
+    expect(page).to have_content('Data limite: ' \
+                                 "#{Date.tomorrow.strftime('%d/%m/%Y')}")
     expect(page).to have_content('Local: Av Paulista')
   end
 
@@ -48,7 +49,7 @@ feature 'Hunter register new job' do
     fill_in 'Salário Mínimo', with: '3399'
     fill_in 'Salário Máximo', with: '2199'
     select 'Júnior', from: 'Nível'
-    fill_in 'Data limite', with: '30/12/2019'
+    fill_in 'Data limite', with: 1.day.from_now
     fill_in 'Local', with: 'Av Paulista'
     click_on 'Enviar'
 
@@ -65,12 +66,28 @@ feature 'Hunter register new job' do
     fill_in 'Salário Mínimo', with: '-10'
     fill_in 'Salário Máximo', with: '-1'
     select 'Júnior', from: 'Nível'
-    fill_in 'Data limite', with: '30/12/2019'
+    fill_in 'Data limite', with: 1.day.from_now
     fill_in 'Local', with: 'Av Paulista'
     click_on 'Enviar'
 
     expect(page).to have_content('Algo deu errado')
     expect(page).to have_content('Salário Mínimo deve ser maior que 0')
     expect(page).to have_content('Salário Máximo deve ser maior que 0')
+  end
+
+  scenario 'and filled in a date in the past' do
+    visit new_job_path
+    fill_in 'Título', with: 'Desenvolvedor Jr.'
+    fill_in 'Descrição', with: 'Aplicação de testes em Ruby on Rails'
+    fill_in 'Habilidades desejadas', with: 'HTML, CSS, RSpec e Capybara'
+    fill_in 'Salário Mínimo', with: '2499'
+    fill_in 'Salário Máximo', with: '3001'
+    select 'Júnior', from: 'Nível'
+    fill_in 'Data limite', with: 1.day.ago
+    fill_in 'Local', with: 'Av Paulista'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Algo deu errado')
+    expect(page).to have_content('Data limite não pode ser menor que hoje')
   end
 end

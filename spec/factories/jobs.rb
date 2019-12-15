@@ -8,7 +8,7 @@ FactoryBot.define do
     position { 0 }
     min_wage { 1 }
     max_wage { 1 }
-    deadline { '2019-12-14' }
+    deadline { 7.days.from_now }
     location { 'MyString' }
   end
 end
