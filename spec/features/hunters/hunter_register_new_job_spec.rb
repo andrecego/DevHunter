@@ -126,4 +126,16 @@ feature 'Hunter register new job' do
                                  ' esta área')
     expect(page).to_not have_content('Cadastrar nova vaga')
   end
+
+  scenario 'and the user can view it' do
+    create(:job, title: 'Desenvolvedor Jr', description: 'Dev. em Rails')
+    user = FactoryBot.create(:user)
+    login_as(user, scope: :user)
+
+    visit root_path
+    click_on 'Vagas'
+
+    expect(page).to have_content('Desenvolvedor Jr')
+    expect(page).to have_content('Dev. em Rails')
+  end
 end

@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 class JobsController < ApplicationController
-  before_action :authenticate_only_hunter
+  before_action :authenticate_only_hunter, only: %i[new create]
+  before_action :authenticate_only_user, only: [:index]
+
+  def index
+    @jobs = Job.all
+  end
+
   def new
     @job = Job.new
   end

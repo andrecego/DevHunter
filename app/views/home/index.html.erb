@@ -6,6 +6,7 @@
 <% elsif user_signed_in? %>
   <%= link_to  t('.my_account'), edit_user_registration_path %>
   <%= link_to  t('.log_out'), destroy_user_session_path, method: :delete %>
+  <%= link_to  t('.jobs'), jobs_path %>
 <% else %>
   <%= link_to t('.sign_up'), signup_path %>
   <%= link_to 'User login', new_user_session_path %>

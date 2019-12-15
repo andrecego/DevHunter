@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/signup', to: 'home#signup'
   resources :headhunters, only: [:index]
   resources :users, only: [:index]
-  resources :jobs, only: [:new, :create, :show]
+  resources :jobs, only: [:index, :new, :create, :show]
 end
