@@ -8,6 +8,6 @@ FactoryBot.define do
     qualifications { 'MyString' }
     description { 'MyText' }
     experience { 'MyText' }
-    user { nil }
+    user
   end
 end

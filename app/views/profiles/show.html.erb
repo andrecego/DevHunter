@@ -1,11 +1,13 @@
 <h3><%= t('.your_profile') %></h3>
-<%= image_tag @profile.picture %>
+<%= image_tag @profile.picture if @profile.picture.present? %>
 <dl>
   <dt><%= Profile.human_attribute_name("full_name") %></dt>
   <dd><%= @profile.full_name %></dd>
   
-  <dt><%= Profile.human_attribute_name("social_name") %></dt>
-  <dd><%= @profile.social_name %></dd>
+  <% if @profile.social_name.present? %>
+    <dt><%= Profile.human_attribute_name("social_name") %></dt>
+    <dd><%= @profile.social_name %></dd>
+  <% end %>
   
   <dt><%= Profile.human_attribute_name("birthdate") %></dt>
   <dd><%= l(@profile.birthdate) %></dd>
@@ -16,6 +18,8 @@
   <dt><%= Profile.human_attribute_name("description") %></dt>
   <dd><%= @profile.description %></dd>
   
-  <dt><%= Profile.human_attribute_name("experience") %></dt>
-  <dd><%= @profile.experience %></dd>
+  <% if @profile.experience.present? %>
+    <dt><%= Profile.human_attribute_name("experience") %></dt>
+    <dd><%= @profile.experience %></dd>
+  <% end %>
 </dl>
