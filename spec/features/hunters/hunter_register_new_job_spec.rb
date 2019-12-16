@@ -139,3 +139,4 @@ feature 'Hunter register new job' do
     expect(page).to have_content('Dev. em Rails')
   end
 end
+Warden.test_reset!

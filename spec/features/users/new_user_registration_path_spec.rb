@@ -54,3 +54,4 @@ feature 'Visitor register new User account' do
     expect(page).to have_content('E-mail já está em uso')
   end
 end
+Warden.test_reset!

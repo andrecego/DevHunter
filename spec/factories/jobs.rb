@@ -10,5 +10,6 @@ FactoryBot.define do
     max_wage { 1 }
     deadline { 7.days.from_now }
     location { 'MyString' }
+    hunter
   end
 end

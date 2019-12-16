@@ -32,5 +32,6 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :skills, :position,
                                 :min_wage, :max_wage, :deadline, :location)
+          .merge(hunter: current_hunter)
   end
 end
