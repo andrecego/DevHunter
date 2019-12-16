@@ -3,6 +3,11 @@
 class ApplicationController < ActionController::Base
   private
 
+  def after_sign_in_path_for(resource)
+    return root_path if resource.class == Hunter
+    return profiles_path if resource.class == User
+  end
+
   def authenticate_only_hunter
     return if current_hunter
 

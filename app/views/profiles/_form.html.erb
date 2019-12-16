@@ -1,0 +1,21 @@
+<%= form_for profile do |f| %>
+  <%= f.label :full_name %>
+  <%= f.text_field :full_name %>
+  
+  <%= f.label :social_name %>
+  <%= f.text_field :social_name %>
+
+  <%= f.label :birthdate %>
+  <%= f.date_field :birthdate %>
+
+  <%= f.label :qualifications %>
+  <%= f.text_field :qualifications %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :experience %>
+  <%= f.text_area :experience %>
+
+  <%= f.submit t('.save') %>
+<% end %>

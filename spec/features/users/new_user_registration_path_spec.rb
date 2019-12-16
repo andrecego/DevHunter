@@ -14,9 +14,9 @@ feature 'Visitor register new User account' do
     end
 
     expect(page).to have_content('Você realizou seu registro como Candidato')
-    expect(page).to have_content('Minha conta')
-    expect(page).to have_content('Sair')
-    expect(page).to_not have_content('Registre-se')
+    # expect(page).to have_content('Minha conta')
+    # expect(page).to have_content('Sair')
+    # expect(page).to_not have_content('Registre-se')
   end
 
   scenario 'and didnt fill in all fields' do
@@ -52,6 +52,20 @@ feature 'Visitor register new User account' do
       click_on 'Inscrever-se'
     end
     expect(page).to have_content('E-mail já está em uso')
+  end
+
+  scenario 'and must be redirected to profile path' do
+    visit root_path
+    click_on 'Registre-se'
+    within '#user' do
+      fill_in 'E-mail', with: 'usuario@usuario.com'
+      fill_in 'Senha', with: 'senha123'
+      fill_in 'Confirmação de senha', with: 'senha123'
+      click_on 'Inscrever-se'
+    end
+
+    expect(page).to have_content('Você realizou seu registro como Candidato')
+    expect(page).to have_content('Preencha seu perfil para poder se candidatar')
   end
 end
 Warden.test_reset!

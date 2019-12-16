@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    model:
+      profile: Perfil
+    attributes:
+      profile:
+        full_name: Nome Completo
+        social_name: Nome Social
+        birthdate: Data de Nascimento
+        qualifications: Formação
+        description: Descrição
+        experience: Experiência

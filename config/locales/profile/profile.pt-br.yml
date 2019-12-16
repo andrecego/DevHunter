@@ -1,0 +1,6 @@
+pt-BR:
+  profiles:
+    form:
+      save: Salvar
+    show:
+      your_profile: Seu Perfil

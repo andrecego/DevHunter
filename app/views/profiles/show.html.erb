@@ -1,0 +1,20 @@
+<h3><%= t('.your_profile') %></h3>
+<dl>
+  <dt><%= Profile.human_attribute_name("full_name") %></dt>
+  <dd><%= @profile.full_name %></dd>
+  
+  <dt><%= Profile.human_attribute_name("social_name") %></dt>
+  <dd><%= @profile.social_name %></dd>
+  
+  <dt><%= Profile.human_attribute_name("birthdate") %></dt>
+  <dd><%= l(@profile.birthdate) %></dd>
+  
+  <dt><%= Profile.human_attribute_name("qualifications") %></dt>
+  <dd><%= @profile.qualifications %></dd>
+  
+  <dt><%= Profile.human_attribute_name("description") %></dt>
+  <dd><%= @profile.description %></dd>
+  
+  <dt><%= Profile.human_attribute_name("experience") %></dt>
+  <dd><%= @profile.experience %></dd>
+</dl>
