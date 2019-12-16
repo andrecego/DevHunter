@@ -47,7 +47,7 @@ feature 'Hunter register new job' do
     expect(page).to have_content('Data limite não pode ficar em branco')
   end
 
-  scenario 'and maximum wage > minimum wage' do
+  scenario 'and maximum wage is greater than minimum wage' do
     hunter = FactoryBot.create(:hunter)
     login_as(hunter, scope: :hunter)
 
