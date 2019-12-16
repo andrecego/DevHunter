@@ -1,4 +1,5 @@
 <h3><%= t('.your_profile') %></h3>
+<%= image_tag @profile.picture %>
 <dl>
   <dt><%= Profile.human_attribute_name("full_name") %></dt>
   <dd><%= @profile.full_name %></dd>

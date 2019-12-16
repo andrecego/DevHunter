@@ -17,5 +17,8 @@
   <%= f.label :experience %>
   <%= f.text_area :experience %>
 
+  <%= f.label :picture %>
+  <%= f.file_field :picture, accept: 'image/png,image/jpeg' %>
+
   <%= f.submit t('.save') %>
 <% end %>

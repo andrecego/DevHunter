@@ -19,7 +19,7 @@ feature 'New user complete the profile' do
     fill_in 'Formação', with: 'Bacharelado em Engenharia Química'
     fill_in 'Descrição', with: 'Buscando novos conhecimentos'
     fill_in 'Experiência', with: 'Desenvolvedor Sênior na Google'
-    # attach_file("Foto de Perfil", Rails.root + "spec/fixtures/user_photo.png")
+    attach_file('Foto de Perfil', Rails.root + 'spec/fixtures/user_photo.png')
     click_on 'Salvar'
 
     expect(page).to have_content('Perfil salvo com sucesso')
@@ -29,6 +29,6 @@ feature 'New user complete the profile' do
     expect(page).to have_content('Bacharelado em Engenharia Química')
     expect(page).to have_content('Buscando novos conhecimentos')
     expect(page).to have_content('Desenvolvedor Sênior na Google')
-    # expect(page).to have_content('user_photo.png')
+    expect(page).to have_css("img[src*='user_photo.png']")
   end
 end
