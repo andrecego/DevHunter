@@ -5,7 +5,7 @@ pt-BR:
     form:
       submit: Enviar
     job:
-      job_for: Vaga para
+      job_for: Vaga para %{job_title}
       not_disclosed: Não divulgado
       wage: Salário
     show:

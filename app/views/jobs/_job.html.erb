@@ -1,4 +1,4 @@
-<h3><%= "#{t('.job_for')} #{job.title}" %></h3>
+<h3><%= t('.job_for', job_title: job.title) %></h3>
 <dl>
   <dt><%= Job.human_attribute_name("description") %></dt>
   <dd><%= job.description %></dd>

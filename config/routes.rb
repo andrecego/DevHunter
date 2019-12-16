@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   root to: 'home#index'
   get '/signup', to: 'home#signup'
-  resources :headhunters, only: [:index]
+  resources :headhunters, only: [:index, :show]
   resources :users, only: [:index]
   resources :jobs, only: [:index, :new, :create, :show]
 end

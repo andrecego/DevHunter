@@ -2,7 +2,7 @@
 
 class JobsController < ApplicationController
   before_action :authenticate_only_hunter, only: %i[new create]
-  before_action :authenticate_only_user, only: [:index]
+  before_action :authenticate_only_user, only: %i[index show]
 
   def index
     @jobs = Job.all
@@ -16,7 +16,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     if @job.save
       flash[:notice] = 'Vaga registrada com sucesso'
-      redirect_to @job
+      redirect_to headhunter_path(@job)
     else
       flash[:alert] = 'Algo deu errado'
       render :new
