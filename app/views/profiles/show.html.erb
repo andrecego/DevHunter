@@ -1,6 +1,9 @@
 <h3><%= t('.your_profile') %></h3>
 <%= image_tag @profile.picture if @profile.picture.present? %>
 <dl>
+  <dt><%= Profile.human_attribute_name("status") %></dt>
+  <dd><%= enum_translate(:profile, :statuses, @profile.status) %></dd>
+
   <dt><%= Profile.human_attribute_name("full_name") %></dt>
   <dd><%= @profile.full_name %></dd>
   

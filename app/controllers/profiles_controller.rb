@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.set_status
     if @profile.save
       flash[:notice] = 'Perfil salvo com sucesso'
       redirect_to @profile

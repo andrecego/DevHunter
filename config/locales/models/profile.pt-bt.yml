@@ -11,3 +11,8 @@ pt-BR:
         description: Descrição
         experience: Experiência
         picture: Foto de Perfil
+        status: Status
+        statuses:
+          pendent: Pendente
+          incomplete: Incompleto
+          complete: Completo
