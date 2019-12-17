@@ -1,6 +1,12 @@
-@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono&display=swap');@import "bootstrap";
 @import "navbar";
+@import "form";
 
+
+* {
+  font-family: 'Overpass Mono', monospace;
+  // font-family: 'Open Sans', sans-serif;
+}
 body {
   background-color: #1e1e1e;
   color: white;

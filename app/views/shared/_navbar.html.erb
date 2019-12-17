@@ -23,15 +23,15 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if hunter_signed_in? %>
-          <li><%= link_to  t('.hunter_area'), headhunters_path %></li>
-          <li><%= link_to  t('.my_account'), edit_hunter_registration_path %></li>
-          <li><%= link_to  t('.log_out'), destroy_hunter_session_path, method: :delete %></li>
+          <li><%= link_to  t('.hunter_area'), headhunters_path, class: 'btn btn-outline-success mr-2' %></li>
+          <!-- <li><%= link_to  t('.my_account'), edit_hunter_registration_path, class: 'btn btn-outline-success mr-2' %></li> -->
+          <li><%= link_to  t('.log_out'), destroy_hunter_session_path, method: :delete, class: 'btn btn-success text-white' %></li>
         <% elsif user_signed_in? %>
-          <li><%= link_to  t('.my_account'), edit_user_registration_path %></li>
-          <li><%= link_to  t('.log_out'), destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to  t('.my_account'), edit_user_registration_path, class: 'btn btn-outline-success mr-2' %></li>
+          <li><%= link_to  t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-success text-white' %></li>
         <% else %>
           <li><%= button_to t('.sign_in'), signin_path, class: 'btn btn-outline-success mr-2', method: :get %></li>
-          <li><%= button_to t('.sign_up'), signup_path, class: 'btn btn-success', method: :get %></li>
+          <li><%= button_to t('.sign_up'), signup_path, class: 'btn btn-success text-white', method: :get %></li>
         <% end %>
       </ul>
     </div>

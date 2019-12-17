@@ -1,23 +1,14 @@
-<%= radio_button_tag :role, :headhunter %>
-<%= label_tag 'role[headhunter]', t('.headhunter') %>
-<%= radio_button_tag :role, :user, true %>
-<%= label_tag 'role[user]', t('.user') %>
+<div class="radio-toolbar row">
+  <%= radio_button_tag :role, :headhunter %>
+  <%= label_tag 'role[headhunter]', t('.headhunter'), class: 'col-6 mb-0' %>
+  <%= radio_button_tag :role, :user, true %>
+  <%= label_tag 'role[user]', t('.user'), class: 'col-6 mb-0' %>
 
-<div class="form" id="headhunter">
-  <%= render 'sign_in_form', resource: @hunter, resource_name: :hunter %>
+  <div class="form col-12 pb-3" id="headhunter">
+    <%= render 'sign_in_form', resource: @hunter, resource_name: :hunter %>
+  </div>
+  
+  <div class="form col-12 pb-3" id="user">
+    <%= render 'sign_in_form', resource: @user, resource_name: :user %>
+  </div>
 </div>
-<div class="form" id="user">
-  <%= render 'sign_in_form', resource: @user, resource_name: :user %>
-</div>
-
-<style>
-input[value=headhunter]:checked ~ #headhunter {
-    display: block;
-}
-input[value=user]:checked ~ #user {
-    display: block;
-}
-.form {
-    display: none;
-}
-</style>
