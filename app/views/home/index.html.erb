@@ -1,13 +1,3 @@
 <h1>DevHunter</h1>
-<% if hunter_signed_in? %>
-  <%= link_to  t('.hunter_area'), headhunters_path %>
-  <%= link_to  t('.my_account'), edit_hunter_registration_path %>
-  <%= link_to  t('.log_out'), destroy_hunter_session_path, method: :delete %>
-<% elsif user_signed_in? %>
-  <%= link_to  t('.my_account'), edit_user_registration_path %>
-  <%= link_to  t('.log_out'), destroy_user_session_path, method: :delete %>
-  <%= link_to  t('.jobs'), jobs_path %>
-<% else %>
-  <%= link_to t('.sign_up'), signup_path %>
-  <%= link_to t('.sign_in'), signin_path %>
-<% end %>
+
+<%= link_to  t('.jobs'), jobs_path %>

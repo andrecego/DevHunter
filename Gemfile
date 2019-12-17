@@ -6,8 +6,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap', '~> 4.4.1'
 gem 'devise'
 gem 'jbuilder', '~> 2.7'
+gem 'jquery-rails'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.1'
 gem 'rubocop', require: false

@@ -1,0 +1,9 @@
+pt-BR:
+  shared:
+    navbar:
+      sign_up: Registre-se
+      sign_in: Entrar
+      my_account: Minha conta
+      log_out: Sair
+      hunter_area: Área do Headhunter
+      jobs: Vagas
