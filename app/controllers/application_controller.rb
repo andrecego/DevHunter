@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     return root_path if resource.class == Hunter
     return if resource.class != User
-    return profiles_path if resource.profile.blank?
-
-    jobs_path
+    return new_profile_path unless resource.profile
+    return edit_profile_path(resource) if resource.profile.incomplete?
+    return jobs_path if resource.profile.complete?
   end
 
   def authenticate_only_hunter

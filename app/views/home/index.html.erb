@@ -9,6 +9,5 @@
   <%= link_to  t('.jobs'), jobs_path %>
 <% else %>
   <%= link_to t('.sign_up'), signup_path %>
-  <%= link_to 'User login', new_user_session_path %>
-  <%= link_to 'Hunter login', new_hunter_session_path %>
+  <%= link_to t('.sign_in'), signin_path %>
 <% end %>

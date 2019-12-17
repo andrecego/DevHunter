@@ -2,7 +2,7 @@ pt-BR:
   home:
     index:
       sign_up: Registre-se
-      sign_in: Entre
+      sign_in: Entrar
       my_account: Minha conta
       log_out: Sair
       hunter_area: Área do Headhunter
@@ -12,3 +12,5 @@ pt-BR:
       user: Candidato
     sign_up_form:
       sign_up: Inscrever-se
+    sign_in_form:
+      log_in: Log in

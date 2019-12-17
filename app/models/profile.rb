@@ -8,7 +8,7 @@ class Profile < ApplicationRecord
             presence: true
   validate :must_be_older_than_fourteen_years_old
 
-  enum  status: { pendent: 0, incomplete: 5, complete: 10 }
+  enum  status: { pending: 0, incomplete: 5, complete: 10 }
 
   def must_be_older_than_fourteen_years_old
     return if birthdate.blank?
@@ -20,7 +20,7 @@ class Profile < ApplicationRecord
   def set_status
     return unless valid?
 
-    pendent!
+    pending!
     return complete! if attributes.values.all?(&:present?)
     return incomplete! if valid?
   end

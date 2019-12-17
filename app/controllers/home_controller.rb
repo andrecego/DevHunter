@@ -7,4 +7,9 @@ class HomeController < ApplicationController
     @user = User.new
     @hunter = Hunter.new
   end
+
+  def signin
+    @user = User.new
+    @hunter = Hunter.new
+  end
 end

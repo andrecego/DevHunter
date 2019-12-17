@@ -13,6 +13,6 @@ pt-BR:
         picture: Foto de Perfil
         status: Status
         statuses:
-          pendent: Pendente
+          pending: Pendente
           incomplete: Incompleto
           complete: Completo
