@@ -24,4 +24,11 @@ class ApplicationController < ActionController::Base
     flash[:alert] = 'Você precisa ser um Candidato para ver esta área'
     redirect_to root_path
   end
+
+  def authenticate
+    return if current_hunter || current_user
+
+    flash[:alert] = 'Você precisa estar logado para ver esta área'
+    redirect_to signup_path
+  end
 end

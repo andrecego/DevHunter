@@ -10,3 +10,13 @@ pt-BR:
       wage: Salário
     show:
       back: Voltar
+    index:
+      all_jobs: Todas Vagas
+      no_job_available: Nenhuma vaga disponível
+      find: Pesquisa
+      search: Buscar
+    search:
+      search_for: Busca por %{q}
+      no_job_found: Nenhuma vaga encontrada
+      find: Pesquisa
+      search: Buscar

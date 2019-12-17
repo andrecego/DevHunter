@@ -1,6 +1,6 @@
-<h1><%= t('.all_jobs') %></h1>
+<h1><%= t('.search_for', q: params[:q]) %></h1>
 <% if @jobs.empty? %>
-  <p><%= t('.no_job_available') %></p>
+  <p><%= t('.no_job_found') %></p>
 <% else %>
   <%= form_with url: search_jobs_path, local: true, method: :get do %>
     <%= label_tag :q, t('.find') %>
