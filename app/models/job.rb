@@ -2,6 +2,7 @@
 
 class Job < ApplicationRecord
   belongs_to :hunter
+  has_many :inscriptions
   enum position: { intern: 0, junior: 5, middle: 10, senior: 15, expert: 20,
                    manager: 25 }
   enum status: { active: 0, inactive: 5 }

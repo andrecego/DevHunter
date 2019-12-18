@@ -8,6 +8,7 @@ pt-BR:
       job_for: Vaga para %{job_title}
       not_disclosed: Não divulgado
       wage: Salário
+      apply_for_job: Candidatar a vaga
     show:
       back: Voltar
     index:

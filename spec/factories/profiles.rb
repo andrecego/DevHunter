@@ -8,7 +8,7 @@ FactoryBot.define do
     qualifications { 'MyString' }
     description { 'MyText' }
     experience { 'MyText' }
-    status { 'pending' }
+    status {}
     user
   end
 end

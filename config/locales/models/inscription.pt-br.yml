@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    model:
+      inscription: Candidatar
+    attributes:
+      inscription:
+        user: Candidato
+        job: Vaga

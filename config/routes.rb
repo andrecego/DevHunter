@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
+  resources :inscriptions, only: [:create]
 end
