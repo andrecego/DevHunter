@@ -8,9 +8,3 @@ pt-BR:
     signup:
       headhunter: Headhunter
       user: Candidato
-    sign_up_form:
-      sign_up: Inscrever-se
-      sign_up_as: Inscreva-se como %{user}
-    sign_in_form:
-      sign_in: Log in
-      sign_in_as: Entre como %{user}

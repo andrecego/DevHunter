@@ -83,6 +83,6 @@ feature 'View jobs' do
     click_on 'Vagas'
 
     expect(page).to have_content('Você precisa estar logado para ver esta área')
-    expect(current_path).to eq(signup_path)
+    expect(current_path).to eq(new_user_registration_path)
   end
 end

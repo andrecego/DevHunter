@@ -30,8 +30,8 @@
           <li><%= link_to  t('.my_account'), edit_user_registration_path, class: 'btn btn-outline-success mr-2' %></li>
           <li><%= link_to  t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-success text-white' %></li>
         <% else %>
-          <li><%= button_to t('.sign_in'), signin_path, class: 'btn btn-outline-success mr-2', method: :get %></li>
-          <li><%= button_to t('.sign_up'), signup_path, class: 'btn btn-success text-white', method: :get %></li>
+          <li><%= button_to t('.sign_in'), new_user_session_path, class: 'btn btn-outline-success mr-2', method: :get %></li>
+          <li><%= button_to t('.sign_up'), new_user_registration_path, class: 'btn btn-success text-white', method: :get %></li>
         <% end %>
       </ul>
     </div>

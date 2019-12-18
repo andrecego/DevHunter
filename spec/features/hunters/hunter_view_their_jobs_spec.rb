@@ -50,4 +50,3 @@ feature 'Hunter view their jobs' do
                                  'esta área')
   end
 end
-Warden.test_reset!

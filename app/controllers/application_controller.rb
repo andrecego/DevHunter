@@ -29,6 +29,6 @@ class ApplicationController < ActionController::Base
     return if current_hunter || current_user
 
     flash[:alert] = 'Você precisa estar logado para ver esta área'
-    redirect_to signup_path
+    redirect_to new_user_registration_path
   end
 end

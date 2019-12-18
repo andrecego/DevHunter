@@ -11,7 +11,7 @@ feature 'User just sign up and' do
         fill_in 'E-mail', with: 'usuario@usuario.com'
         fill_in 'Senha', with: 'senha123'
         fill_in 'Confirmação de senha', with: 'senha123'
-        click_on 'Inscrever-se'
+        click_on 'Inscreva-se'
       end
     end
 

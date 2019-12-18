@@ -10,10 +10,12 @@ input[value=user]:checked ~ #user {
 
 #headhunter {
   background-color: black;
+  color: white
 }
 
 #user {
-  background-color: #4c4;
+  background-color: white;
+  color: black;
 }
 
 .radio-toolbar {
@@ -34,9 +36,20 @@ input[value=user]:checked ~ #user {
 }
 
 input[value=user] + label {
-  background-color: #4c4;
+  background-color: #fff;
+  color: black;
 }
 
 input[value=headhunter] + label {
   background-color: #000;
+  color: white;
+}
+
+.btn-blue {
+  background-color: #22e;
+  color: #fff;
+  &:hover {
+    background-color: #00a;
+    color: white;
+  }
 }
