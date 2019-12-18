@@ -24,7 +24,7 @@ If you are using RVM it would be something like this
 rvm install ruby-2.6.3
 ```
 
-Then setup the app running
+Then setup the app by running
 
 ```
 bin/setup
@@ -36,7 +36,7 @@ To start the server run
 rails server
 ```
 
-You should be good to go, browse trough the app by accessing http://localhost:3000
+You should be good to go, browse through the app by accessing http://localhost:3000
 
 ## Running the tests
 
