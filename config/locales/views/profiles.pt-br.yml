@@ -4,3 +4,9 @@ pt-BR:
       save: Salvar
     show:
       your_profile: Seu Perfil
+    profile:
+      your_profile: Seu Perfil
+      edit: Editar
+    index:
+      edit_my_account: Editar minha conta
+      my_jobs: Minhas vagas

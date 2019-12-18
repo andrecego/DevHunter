@@ -1,0 +1,26 @@
+<div id="profile">
+  <h3 class="text-green"><%= profile.full_name %></h3>
+  <%= image_tag profile.picture if profile.picture.present? %>
+  <dl>
+    <% if profile.social_name.present? %>
+      <dt><%= Profile.human_attribute_name("social_name") %></dt>
+      <dd><%= profile.social_name %></dd>
+    <% end %>
+    
+    <dt><%= Profile.human_attribute_name("birthdate") %></dt>
+    <dd><%= l(profile.birthdate) %></dd>
+    
+    <dt><%= Profile.human_attribute_name("qualifications") %></dt>
+    <dd><%= profile.qualifications %></dd>
+    
+    <dt><%= Profile.human_attribute_name("description") %></dt>
+    <dd><%= profile.description %></dd>
+    
+    <% if profile.experience.present? %>
+      <dt><%= Profile.human_attribute_name("experience") %></dt>
+      <dd><%= profile.experience %></dd>
+    <% end %> 
+  </dl>
+  <%= button_to t('.edit'), edit_profile_path(profile), class: 'btn btn-blue',
+                            method: :get %>
+</div>

@@ -3,7 +3,7 @@
     <a class="close" data-dismiss="alert">&#215;</a>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
-        <%= content_tag :li, msg, :id => "error_#{msg}" if msg.is_a?(String) %>
+        <%= content_tag :li, msg, class: 'error-msg' if msg.is_a?(String) %>
       <% end %>
     </ul>
   </div>

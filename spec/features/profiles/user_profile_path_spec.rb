@@ -26,7 +26,6 @@ feature 'User just sign up and' do
       click_on 'Salvar'
 
       expect(page).to have_content('Perfil salvo com sucesso')
-      expect(page).to have_content('Status Completo')
       expect(page).to have_content('Andre Cesar Gomes')
       expect(page).to have_content('Andre')
       expect(page).to have_content('27/04/1992')
@@ -56,7 +55,6 @@ feature 'User just sign up and' do
       click_on 'Salvar'
 
       expect(page).to have_content('Perfil salvo com sucesso')
-      expect(page).to have_content('Status Incompleto')
       expect(page).to have_content('Andre Cesar Gomes')
       expect(page).to_not have_content('Nome Social')
       expect(page).to have_content('27/04/1992')

@@ -3,8 +3,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_only_user
   def index
-    @profile = Profile.new
-    render :new
+    @profile = Profile.find(current_user.id)
   end
 
   def new

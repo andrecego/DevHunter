@@ -1,0 +1,7 @@
+<div class="row">
+  <%= content_tag :p, current_user.email, class: 'col-6' %>
+  <%= link_to t('.edit_my_account'), edit_user_registration_path(current_user)%>
+</div>
+<%= render 'profile', profile: @profile %>
+
+<%= link_to t('.my_jobs'), inscriptions_path %>

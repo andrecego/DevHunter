@@ -27,7 +27,7 @@
           <!-- <li><%= link_to  t('.my_account'), edit_hunter_registration_path, class: 'btn btn-outline-success mr-2' %></li> -->
           <li><%= link_to  t('.log_out'), destroy_hunter_session_path, method: :delete, class: 'btn btn-success text-white' %></li>
         <% elsif user_signed_in? %>
-          <li><%= link_to  t('.my_account'), edit_user_registration_path, class: 'btn btn-outline-success mr-2' %></li>
+          <li><%= link_to  t('.my_account'), profiles_path, class: 'btn btn-outline-success mr-2' %></li>
           <li><%= link_to  t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-success text-white' %></li>
         <% else %>
           <li><%= button_to t('.sign_in'), new_user_session_path, class: 'btn btn-outline-success mr-2', method: :get %></li>

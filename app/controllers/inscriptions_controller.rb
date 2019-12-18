@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class InscriptionsController < ApplicationController
+  def index
+    @inscriptions = Inscription.where(user: current_user)
+  end
+
   def create
     @inscription = Inscription.new(params.permit(:job_id, :user_id))
     if @inscription.save
