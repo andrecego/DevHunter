@@ -4,6 +4,7 @@ class Job < ApplicationRecord
   belongs_to :hunter
   enum position: { intern: 0, junior: 5, middle: 10, senior: 15, expert: 20,
                    manager: 25 }
+  enum status: { active: 0, inactive: 5 }
   validates :title, :description, :min_wage, :max_wage, :deadline,
             presence: true
   validates :min_wage, :max_wage, numericality: { greater_than: 0 }
@@ -19,6 +20,7 @@ class Job < ApplicationRecord
 
   def deadline_must_be_greater_than_today
     return if deadline.blank?
+    return if inactive?
     return if deadline > Date.today
 
     errors.add(:deadline, 'não pode ser menor que hoje')
