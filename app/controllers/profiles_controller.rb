@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProfilesController < ApplicationController
-  before_action :authenticate_only_user
+  before_action :authenticate  
   def index
     @profile = Profile.find(current_user.id)
   end

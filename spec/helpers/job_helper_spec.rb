@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe JobHelper, type: :helper do
+describe JobHelper do
   describe '#job_attribute_positions_hash' do
     it 'returns the translated attribute name' do
       expect(helper.job_attribute_positions_hash)

@@ -1,2 +1,9 @@
 <%= render @job %>
 <%= link_to  t('.back'), jobs_path %>
+
+<% if hunter_signed_in? %>
+  <h3><%= t('.candidates') %></h3>
+  <%= render(partial: 'profiles/user', collection: @users) || 
+      t('.no_candidate') %>
+<% end %>
+

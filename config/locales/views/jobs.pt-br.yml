@@ -11,6 +11,8 @@ pt-BR:
       apply_for_job: Candidatar a vaga
     show:
       back: Voltar
+      candidates: Candidatos
+      no_candidate: Nenhum candidato até o momento
     index:
       all_jobs: Todas Vagas
       no_job_available: Nenhuma vaga disponível

@@ -10,5 +10,9 @@ FactoryBot.define do
     experience { 'MyText' }
     status {}
     user
+
+    trait :with_picture do
+      picture { fixture_file_upload(Rails.root.join('spec', 'support', 'assets', 'user_photo.png'), 'image/png') }        
+    end
   end
 end
