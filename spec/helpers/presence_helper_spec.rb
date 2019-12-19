@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include ActionDispatch::TestProcess
 
 describe PresenceHelper do
   describe '#user_profile_picture' do
@@ -17,7 +16,7 @@ describe PresenceHelper do
       create(:profile, :with_picture, user: user)
 
       profile_picture = user_profile_picture(user)
-      
+
       expect(profile_picture.class).to eq(ActiveStorage::Attached::One)
     end
   end

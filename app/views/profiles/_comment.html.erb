@@ -1,0 +1,11 @@
+<div class="card text-dark my-2">
+  <div class="card-header">
+    <div class="row">
+      <%= content_tag(:h5, comment.hunter.email, class: 'col-md-8') %>
+      <%= content_tag(:span, l(comment.created_at, format: :short), class:'text-right col-md-4') %>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= comment.body %>
+  </div>
+</div>

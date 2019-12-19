@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProfilesController < ApplicationController
-  before_action :authenticate  
+  before_action :authenticate
   def index
     @profile = Profile.find(current_user.id)
   end
@@ -24,6 +24,9 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @comment = Comment.new
+    @comments = @profile.comments
+    # @comment = @profile.comments.build
   end
 
   def edit

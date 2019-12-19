@@ -1,1 +1,11 @@
-<%= render 'profile', profile: @profile %>
+<%= render 'shared/errors', object: @comment %>
+<%= render 'profiles/profile', profile: @profile %>
+<hr class="green">
+<br/>
+<h4>
+  <%= t('.comment_count', count: @comments.count) if @comments.present? %>
+</h4>
+<%= render(partial: 'profiles/comment', collection: @comments) || 
+    content_tag(:p, t('.be_the_first')) %>
+<hr>
+<%= render 'comments/form', comment: @comment if current_hunter %>

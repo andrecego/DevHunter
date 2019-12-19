@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index, :new, :create, :show] do
     get 'search', on: :collection
   end
-  resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
+  resources :profiles, only: [:index, :new, :create, :show, :edit, :update] do
+    resources :comments, only: %i[new create]
+  end
   resources :inscriptions, only: [:index, :create]
 end

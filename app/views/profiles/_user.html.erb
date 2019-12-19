@@ -1,0 +1,41 @@
+<div class="card text-dark my-3">
+    <div class="card-header">
+      <h4> <%= link_to user.profile.full_name, profile_path(user.profile) %> 
+        <%= content_tag :small, user.email %>
+      </h4>
+    </div>
+
+    <div class="row card-body">
+      <div class="col-md-2">
+        <%= image_tag user_profile_picture(user), class: 'rounded-circle img-responsive' %>
+      </div>
+
+      <div class="col-md-10">
+        <p class="text-left">
+          <strong>Bio: </strong><br>
+          <%= user.profile.description %>
+        </p>
+      </div>
+    </div>
+
+        <div class="card-footer">
+            <strong><%= Profile.human_attribute_name("qualifications") %>:</strong>
+            <%= user.profile.qualifications %>
+        </div>
+
+
+  </div>
+
+
+<style>
+.img-responsive{
+  width: 95%;
+  margin: auto;
+  display: block;
+}
+
+.linear li{
+  display: inline;
+}
+
+</style>

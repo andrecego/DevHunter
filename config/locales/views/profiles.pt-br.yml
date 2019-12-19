@@ -4,6 +4,10 @@ pt-BR:
       save: Salvar
     show:
       your_profile: Seu Perfil
+      be_the_first: Seja o primeiro a comentar!
+      comment_count:
+        one: 1 Comentário
+        other: '%{count} Comentários'
     profile:
       your_profile: Seu Perfil
       edit: Editar

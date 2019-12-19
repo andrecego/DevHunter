@@ -3,6 +3,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_one_attached :picture
+  has_many :comments
 
   validates :full_name, :birthdate, :qualifications, :description,
             presence: true
