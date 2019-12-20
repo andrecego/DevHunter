@@ -16,4 +16,16 @@ class InscriptionsController < ApplicationController
       render 'jobs/show'
     end
   end
+  
+  def star
+    @inscription = Inscription.find(params[:id])
+    if @inscription.job.hunter == current_hunter
+      @inscription.update(starred: !@inscription.starred?)
+      redirect_to job_path(@inscription.job)
+    else
+      flash[:alert] = 'Você não tem essa permissão'
+      redirect_to jobs_path
+    end
+  end
+  
 end

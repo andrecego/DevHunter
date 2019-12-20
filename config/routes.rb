@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update] do
     resources :comments, only: %i[new create]
   end
-  resources :inscriptions, only: [:index, :create]
+  resources :inscriptions, only: [:index, :create] do
+    put 'star', on: :member
+  end
 end

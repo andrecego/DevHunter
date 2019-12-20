@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authenticate_only_user
+  before_action :authenticate_user_only
   def index; end
 end

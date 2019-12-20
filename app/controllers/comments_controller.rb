@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :authenticate_only_hunter, only: :create
+  before_action :authenticate_hunter_only, only: :create
   def create
     @profile = Profile.find(params[:profile_id])
     @comment = Comment.new(comment_params)

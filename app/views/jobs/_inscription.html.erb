@@ -1,0 +1,45 @@
+<div class="card text-dark my-3">
+    <div class="card-header row">
+      <h4> <%= link_to inscription.user.profile.full_name, profile_path(inscription.user.profile) %> 
+        <%= content_tag :small, inscription.user.email %>
+      </h4>
+      <%= link_to star_inscription_path(inscription), method: :put, class: 'fav-star' do %>
+        <%= fa_stacked_icon 'star-o 2x',
+            base: highlighted_icon(inscription.starred) %>
+      <% end %>
+    </div>
+
+    <div class="row card-body">
+      <div class="col-md-2">
+        <%= image_tag user_profile_picture(inscription.user), class: 'rounded-circle img-responsive' %>
+      </div>
+
+      <div class="col-md-10">
+        <p class="text-left">
+          <strong>Bio: </strong><br>
+          <%= inscription.user.profile.description %>
+        </p>
+      </div>
+    </div>
+
+        <div class="card-footer">
+            <strong><%= Profile.human_attribute_name("qualifications") %>:</strong>
+            <%= inscription.user.profile.qualifications %>
+        </div>
+
+
+  </div>
+
+
+<style>
+.img-responsive{
+  width: 95%;
+  margin: auto;
+  display: block;
+}
+
+.linear li{
+  display: inline;
+}
+
+</style>

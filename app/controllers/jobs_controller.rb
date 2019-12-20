@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class JobsController < ApplicationController
-  before_action :authenticate_only_hunter, only: %i[new create]
+  before_action :authenticate_hunter_only, only: %i[new create]
   before_action :authenticate, only: %i[index show]
 
   def index
@@ -29,7 +29,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @users = @job.users
+    @inscriptions = @job.inscriptions.order(starred: :desc)
   end
 
   def search

@@ -20,4 +20,22 @@ describe PresenceHelper do
       expect(profile_picture.class).to eq(ActiveStorage::Attached::One)
     end
   end
+
+  describe '#highlighted_icon' do
+    it 'returns fa-star if the user is highlighted' do
+      user = create(:user)
+      create(:profile, :with_picture, user: user)
+      inscription = create(:inscription, user: user, starred: true)
+
+      expect(highlighted_icon(inscription.starred)).to eq 'star 2x'      
+    end
+
+    it 'returns empty if the user is not highlighted' do
+      user = create(:user)
+      create(:profile, :with_picture, user: user)
+      inscription = create(:inscription, user: user, starred: false)
+
+      expect(highlighted_icon(inscription.starred)).to be_empty      
+    end
+  end
 end

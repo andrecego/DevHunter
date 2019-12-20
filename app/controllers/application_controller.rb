@@ -11,14 +11,14 @@ class ApplicationController < ActionController::Base
     return jobs_path if resource.profile.complete?
   end
 
-  def authenticate_only_hunter
+  def authenticate_hunter_only
     return if current_hunter
 
     flash[:alert] = 'Você precisa ser um Headhunter para ver esta área'
     redirect_to root_path
   end
 
-  def authenticate_only_user
+  def authenticate_user_only
     return if current_user
 
     flash[:alert] = 'Você precisa ser um Candidato para ver esta área'
