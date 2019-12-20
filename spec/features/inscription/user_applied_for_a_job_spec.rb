@@ -33,5 +33,17 @@ feature 'User applied for a job' do
       expect(page).to have_content('Candidato precisa preencher o perfil para' \
                                    ' poder se candidatar')
     end
+
+    scenario 'that he already was a candidate' do
+      job = create(:job, title: 'Marketing Digital')
+      create(:profile, user: @user)
+      create(:inscription, job: job, user: @user)
+
+      visit root_path
+      click_on 'Vagas'
+      click_on 'Vaga para Marketing Digital'
+
+      expect(page).to have_content('Já inscrito')
+    end
   end
 end

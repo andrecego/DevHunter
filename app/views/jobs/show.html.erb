@@ -1,4 +1,12 @@
 <%= render @job %>
+<% if @user_applyed.present? %>
+  <%= content_tag(:p, 'Já inscrito', class: 'btn btn-green') %>
+<% elsif user_signed_in? %>
+  <%= button_to t('.apply_for_job'), 
+      inscriptions_path(job_id: @job, user_id: current_user), 
+      class: 'btn btn-blue' %>
+<% end %>
+
 <%= link_to  t('.back'), jobs_path %>
 
 <% if hunter_signed_in? %>

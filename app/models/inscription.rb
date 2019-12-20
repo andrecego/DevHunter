@@ -3,6 +3,7 @@
 class Inscription < ApplicationRecord
   belongs_to :user
   belongs_to :job
+  validates :user, uniqueness: true
   validate :user_has_a_profile
 
   def user_has_a_profile

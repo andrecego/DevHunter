@@ -29,6 +29,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @user_applyed = @job.inscriptions.where(user: current_user)
     @inscriptions = @job.inscriptions.order(starred: :desc)
   end
 

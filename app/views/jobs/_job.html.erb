@@ -1,6 +1,7 @@
 <%= render "shared/errors", object: @inscription %>
 <h3><%= link_to t('.job_for', job_title: job.title), job_path(job) %></h3>
 <dl>
+
   <dt><%= Job.human_attribute_name("description") %></dt>
   <dd><%= job.description %></dd>
 
@@ -25,6 +26,3 @@
   <dd><%= t('.not_disclosed') if job.location.empty? %></dd>
   <dd><%= job.location %></dd>  
 </dl>
-<%= button_to t('.apply_for_job'), 
-      inscriptions_path(job_id: job, user_id: current_user), 
-      class: 'btn btn-success' %>

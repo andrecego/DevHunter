@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Hunter highlighted a user' do
@@ -6,7 +8,7 @@ feature 'Hunter highlighted a user' do
     create(:profile, :with_picture, user: user)
     hunter = create(:hunter)
     job = create(:job, hunter: hunter, title: 'Dentista')
-    inscription = create(:inscription, user: user, job: job, starred: false)
+    create(:inscription, user: user, job: job, starred: false)
     login_as(hunter, scope: :hunter)
 
     visit root_path

@@ -27,7 +27,7 @@ describe PresenceHelper do
       create(:profile, :with_picture, user: user)
       inscription = create(:inscription, user: user, starred: true)
 
-      expect(highlighted_icon(inscription.starred)).to eq 'star 2x'      
+      expect(highlighted_icon(inscription.starred)).to eq 'star 2x'
     end
 
     it 'returns empty if the user is not highlighted' do
@@ -35,7 +35,7 @@ describe PresenceHelper do
       create(:profile, :with_picture, user: user)
       inscription = create(:inscription, user: user, starred: false)
 
-      expect(highlighted_icon(inscription.starred)).to be_empty      
+      expect(highlighted_icon(inscription.starred)).to be_empty
     end
   end
 end

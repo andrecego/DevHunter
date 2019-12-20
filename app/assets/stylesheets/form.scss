@@ -54,6 +54,15 @@ input[value=headhunter] + label {
   }
 }
 
+.btn-green {
+  background-color: #0d0;
+  color: #fff;
+  &:hover {
+    background-color: #0a0;
+    color: white;
+  }
+}
+
 .error-msg {
   background-color: black;
   color: #00ff00;
