@@ -62,6 +62,6 @@ You can find the tests files in the `/spec` folder, they are divided in subfolde
 
 - Authentication - [Devise](https://github.com/plataformatec/devise)
 
-- Front-end solution - [Bootstrap](https://getbootstrap.com/)
+- Front-end solution - [Bootstrap](https://github.com/twbs/bootstrap) and [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
 
 - Formatting - [RuboCop](https://github.com/rubocop-hq/rubocop)
