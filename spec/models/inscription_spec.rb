@@ -114,4 +114,32 @@ describe Inscription do
       expect(inscription.errors).to be_empty
     end
   end
+
+  describe '.deadline_not_past' do
+    it 'on the exact same date as deadline' do
+      user = create(:user)
+      create(:profile, user: user)
+      job = create(:job, deadline: 1.day.from_now)
+      travel_to(1.day.from_now) do
+        inscription = build(:inscription, job: job, user: user)
+
+        inscription.valid?
+
+        expect(inscription.errors).to be_empty
+      end
+    end
+
+    it 'one day past the deadline' do
+      user = create(:user)
+      create(:profile, user: user)
+      job = create(:job, deadline: 1.day.from_now)
+      travel_to(2.day.from_now) do
+        inscription = build(:inscription, job: job, user: user)
+
+        inscription.valid?
+
+        expect(inscription.errors.full_messages).to eq(['Prazo acabou'])
+      end
+    end
+  end
 end

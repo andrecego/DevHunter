@@ -3,6 +3,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_hunter_only, only: %i[new create]
   before_action :authenticate, only: %i[index show]
+  before_action :inactivate_old_jobs, only: %i[index search]
 
   def index
     @jobs = if current_hunter
@@ -45,5 +46,11 @@ class JobsController < ApplicationController
     params.require(:job).permit(:title, :description, :skills, :position,
                                 :min_wage, :max_wage, :deadline, :location)
           .merge(hunter: current_hunter)
+  end
+
+  def inactivate_old_jobs
+    Job.where(status: 'active').each do |x|
+      x.inactive! if Date.today > x.deadline
+    end
   end
 end

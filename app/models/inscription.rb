@@ -5,6 +5,7 @@ class Inscription < ApplicationRecord
   belongs_to :job
   validate :job_has_uniq_users, on: :create
   validate :user_has_a_profile
+  validate :deadline_not_past
 
   def user_has_a_profile
     return if user.profile.present? && !user.profile.pending?
@@ -16,5 +17,11 @@ class Inscription < ApplicationRecord
     return if job.users.blank? || !job.users.include?(user)
 
     errors.add(:user, 'já inscrito')
+  end
+
+  def deadline_not_past
+    return if Date.today <= job.deadline
+
+    errors.add(:base, 'Prazo acabou')
   end
 end
