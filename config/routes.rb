@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
   resources :inscriptions, only: %i[index create] do
     put 'star', on: :member
+    resources :rejections, only: %i[new create]
   end
 end

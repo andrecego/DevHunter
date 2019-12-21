@@ -21,7 +21,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     if @job.save
       flash[:notice] = 'Vaga registrada com sucesso'
-      redirect_to headhunter_path(@job)
+      redirect_to @job
     else
       flash[:alert] = 'Algo deu errado'
       render :new

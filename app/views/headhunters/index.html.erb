@@ -4,6 +4,4 @@
 <%= link_to t('.back'), root_path %>
 <br />
 
-<% @jobs.each do |job| %>
-  <%= render 'jobs/job_card', job: job %>
-<% end %>
+<%= render @jobs %>

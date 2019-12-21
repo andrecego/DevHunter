@@ -1,0 +1,5 @@
+pt-BR:
+  rejections:
+    new:
+      rejecting_candidate: Rejeitando candidato %{candidate}
+      reject: Rejeitar

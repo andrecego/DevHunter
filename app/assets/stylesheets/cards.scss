@@ -1,8 +1,15 @@
 .fav-star {
-  position: absolute;
-  right: 20px;
-  color: rgb(91, 235, 91);
+  padding-right: 15px;
+  color: $green;
   &:hover {
     color: rgb(53, 160, 53);
   }
+}
+
+.font-md {
+  font-size: medium;
+}
+
+.font-xlg {
+  font-size: x-large;
 }

@@ -6,6 +6,8 @@ pt-BR:
       submit: Enviar
     job:
       job_for: Vaga para %{job_title}
+    job_full:
+      job_for: Vaga para %{job_title}
       not_disclosed: Não divulgado
       wage: Salário
     show:
@@ -23,3 +25,5 @@ pt-BR:
       no_job_found: Nenhuma vaga encontrada
       find: Pesquisa
       search: Buscar
+    inscription:
+      reject: Rejeitar

@@ -47,8 +47,8 @@ feature 'Search jobs' do
       click_on 'Buscar'
 
       expect(page).to have_content('Busca por Analista')
-      expect(page).to have_css('h3', text: 'Vaga para Analista', count: 1)
-      expect(page).to have_css('h3', text: 'Vaga para An. Dados', count: 1)
+      expect(page).to have_css('a', text: 'Vaga para Analista', count: 1)
+      expect(page).to have_css('a', text: 'Vaga para An. Dados', count: 1)
       expect(page).to_not have_content('Vaga para Marketing')
     end
   end

@@ -6,3 +6,8 @@ pt-BR:
       inscription:
         user: Candidato
         job: Vaga
+        status: Status
+        statuses:
+          pending: Pendente
+          rejected: Rejeitado
+          approved: Aprovado

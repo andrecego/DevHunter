@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   before_action :user_have_profile, only: %i[new create]
   before_action :user_dont_have_profile, only: %i[show index]
   def index
-    @profile = Profile.find(current_user.id)
+    @profile = current_user.profile
   end
 
   def new
@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   private

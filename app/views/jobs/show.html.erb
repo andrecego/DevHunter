@@ -1,4 +1,4 @@
-<%= render @job %>
+<%= render 'jobs/job_full', job: @job %>
 <% if @user_applyed.present? %>
   <%= content_tag(:p, 'Já inscrito', class: 'btn btn-green') %>
 <% elsif user_signed_in? %>

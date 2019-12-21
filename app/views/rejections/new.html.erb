@@ -1,0 +1,11 @@
+<h3><%= t('.rejecting_candidate', candidate: @user.profile.full_name) %></h3>
+
+<%= form_for [@inscription, @rejection] do |f| %>
+
+  <div class="form-group">
+    <%= f.label :feedback %>
+    <%= f.text_area :feedback, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('.reject'), class: 'btn btn-red float-right' %>
+<% end %>

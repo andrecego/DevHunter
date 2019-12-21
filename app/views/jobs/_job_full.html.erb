@@ -1,0 +1,28 @@
+<%= render "shared/errors", object: @inscription %>
+<h3><%= link_to t('.job_for', job_title: job.title), job_path(job) %></h3>
+<dl>
+
+  <dt><%= Job.human_attribute_name("description") %></dt>
+  <dd><%= job.description %></dd>
+
+  <% if job.skills.present? %>
+    <dt><%= Job.human_attribute_name("skills") %></dt>
+    <dd><%= job.skills %></dd>
+  <% end %>
+
+  <dt><%= t('.wage') %></dt>
+  <dd>
+    <%= "#{number_to_currency(job.min_wage)} - " \
+        "#{number_to_currency(job.max_wage)}" %>
+  </dd>
+
+  <dt><%= "#{Job.human_attribute_name("position")}:" %></dt>
+  <dd><%= t("activerecord.attributes.job.positions.#{job.position}") %></dd>
+
+  <dt><%= "#{Job.human_attribute_name("deadline")}:" %></dt>
+  <dd><%= l(job.deadline) %></dd>
+  
+  <dt><%= "#{Job.human_attribute_name("location")}:" %></dt>
+  <dd><%= t('.not_disclosed') if job.location.empty? %></dd>
+  <dd><%= job.location %></dd>  
+</dl>
