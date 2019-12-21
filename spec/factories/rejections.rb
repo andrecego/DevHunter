@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :rejection do
-    body { 'MyText' }
+    feedback { 'MyText' }
     inscription
   end
 end

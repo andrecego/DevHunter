@@ -1,3 +1,4 @@
+<%= render 'shared/errors', object: @rejection %>
 <h3><%= t('.rejecting_candidate', candidate: @user.profile.full_name) %></h3>
 
 <%= form_for [@inscription, @rejection] do |f| %>

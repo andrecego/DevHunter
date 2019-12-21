@@ -10,7 +10,7 @@
       </div>
 
       <div class="justify-self-end align-middle">
-        <%= content_tag(:span, class: 'badge badge-warning font-md') do %>
+        <%= content_tag(:span, class: "badge font-md badge-#{badge(inscription.status)}") do %>
           <%= enum_translate(:inscription, :statuses, inscription.status) %>
         <% end %>
         <%= link_to star_inscription_path(inscription), method: :put, class: 'fav-star' do %>
@@ -43,7 +43,7 @@
       <%= inscription.user.profile.qualifications %>
       <div class="float-right">
         <%= button_to t('.reject'), new_inscription_rejection_path(inscription), 
-            method: :get, class: 'btn btn-red' %>
+            method: :get, class: 'btn btn-red' if inscription.pending? %>
       </div>
   </div>
 

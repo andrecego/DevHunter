@@ -2,4 +2,5 @@
 
 class Rejection < ApplicationRecord
   belongs_to :inscription
+  validates :feedback, presence: true
 end

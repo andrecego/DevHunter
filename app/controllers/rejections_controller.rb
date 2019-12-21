@@ -16,7 +16,8 @@ class RejectionsController < ApplicationController
       redirect_to @inscription.job
     else
       flash[:error] = 'Algo deu errado'
-      redirect_to @inscription
+      @user = @inscription.user
+      render :new
     end
   end
 
