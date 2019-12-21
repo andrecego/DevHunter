@@ -50,11 +50,11 @@ feature 'Hunter rejected a user inscription' do
     create(:rejection, inscription: inscription)
     inscription.rejected!
     login_as(hunter, scope: :hunter)
-    
+
     visit job_path(job)
 
     expect(page).to have_content('Vaga para Estilista')
-    expect(page).to have_css('span', text:'Rejeitado')
+    expect(page).to have_css('span', text: 'Rejeitado')
     expect(page).to_not have_button('Rejeitar')
   end
 end
