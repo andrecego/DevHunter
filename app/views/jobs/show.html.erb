@@ -7,11 +7,10 @@
       class: 'btn btn-blue' %>
 <% end %>
 
-<%= link_to  t('.back'), jobs_path %>
+<%= link_to  t('.back'), :back %>
 
 <% if hunter_signed_in? %>
   <h3><%= t('.candidates') %></h3>
-  <%= render(partial: 'jobs/inscription', collection: @inscriptions) || 
-      t('.no_candidate') %>
+  <%= render(@inscriptions) || t('.no_candidate') %>
 <% end %>
 

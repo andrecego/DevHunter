@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RejectionsController < ApplicationController
+  before_action :authenticate_hunter_only, only: %i[new create]
   def new
     @inscription = Inscription.find(params[:inscription_id])
     @rejection = Rejection.new
@@ -16,7 +17,6 @@ class RejectionsController < ApplicationController
       redirect_to @inscription.job
     else
       flash[:error] = 'Algo deu errado'
-      @user = @inscription.user
       render :new
     end
   end

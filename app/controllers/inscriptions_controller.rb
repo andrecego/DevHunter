@@ -2,8 +2,13 @@
 
 class InscriptionsController < ApplicationController
   before_action :check_hunter, only: :star
+  before_action :authenticate, only: %i[index create]
   def index
-    @inscriptions = Inscription.where(user: current_user)
+    if current_hunter
+      @inscriptions = Job.where(hunter: current_hunter).inscriptions
+    else
+      @jobs = current_user.jobs.order(:deadline)
+    end
   end
 
   def create

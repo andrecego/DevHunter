@@ -2,10 +2,6 @@
 <% if @jobs.empty? %>
   <p><%= t('.no_job_available') %></p>
 <% else %>
-  <%= form_with url: search_jobs_path, local: true, method: :get do %>
-    <%= label_tag :q, t('.find') %>
-    <%= text_field_tag :q %>
-    <%= submit_tag t('.search') %>
-  <% end %>
+  <%= render 'jobs/find' %>
   <%= render @jobs %>
 <% end %>

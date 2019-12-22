@@ -21,9 +21,10 @@ pt-BR:
       find: Pesquisa
       search: Buscar
     search:
-      search_for: Busca por %{q}
       no_job_found: Nenhuma vaga encontrada
+      search_for: Busca por %{q}
+    find:
+      search_for_jobs: Buscar vagas
       find: Pesquisa
       search: Buscar
-    inscription:
-      reject: Rejeitar
+

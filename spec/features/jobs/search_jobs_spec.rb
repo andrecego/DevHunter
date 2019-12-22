@@ -14,7 +14,7 @@ feature 'Search jobs' do
 
       visit root_path
       click_on 'Vagas'
-      fill_in 'Pesquisa', with: 'Farmaceutico'
+      fill_in 'Buscar vagas', with: 'Farmaceutico'
       click_on 'Buscar'
 
       expect(page).to have_content('Busca por Farmaceutico')
@@ -26,7 +26,7 @@ feature 'Search jobs' do
 
       visit root_path
       click_on 'Vagas'
-      fill_in 'Pesquisa', with: 'Marketing'
+      fill_in 'Buscar vagas', with: 'Marketing'
       click_on 'Buscar'
 
       expect(page).to have_content('Busca por Marketing')
@@ -43,7 +43,7 @@ feature 'Search jobs' do
 
       visit root_path
       click_on 'Vagas'
-      fill_in 'Pesquisa', with: 'Analista'
+      fill_in 'Buscar vagas', with: 'Analista'
       click_on 'Buscar'
 
       expect(page).to have_content('Busca por Analista')
@@ -61,7 +61,7 @@ feature 'Search jobs' do
 
       visit root_path
       click_on 'Vagas'
-      fill_in 'Pesquisa', with: 'caixa'
+      fill_in 'Buscar vagas', with: 'caixa'
       click_on 'Buscar'
 
       expect(page).to have_content('Busca por caixa')
@@ -77,7 +77,7 @@ feature 'Search jobs' do
 
       visit root_path
       click_on 'Vagas'
-      fill_in 'Pesquisa', with: 'caixa'
+      fill_in 'Buscar vagas', with: 'caixa'
       click_on 'Buscar'
 
       expect(page).to have_content('Busca por caixa')
@@ -98,7 +98,7 @@ feature 'Search jobs' do
 
       visit root_path
       click_on 'Vagas'
-      fill_in 'Pesquisa', with: 'redes'
+      fill_in 'Buscar vagas', with: 'redes'
       click_on 'Buscar'
 
       expect(page).to have_content('Busca por redes')

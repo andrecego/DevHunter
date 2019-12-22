@@ -27,4 +27,8 @@ class Job < ApplicationRecord
 
     errors.add(:deadline, 'não pode ser menor que hoje')
   end
+
+  def inscription(user)
+    inscriptions.find_by(user: user)
+  end
 end
