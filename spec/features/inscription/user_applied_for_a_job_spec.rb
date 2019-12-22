@@ -43,7 +43,7 @@ feature 'User applied for a job' do
       click_on 'Vagas'
       click_on 'Vaga para Marketing Digital'
 
-      expect(page).to have_content('Já inscrito')
+      expect(page).to have_content('Status: Pendente')
     end
   end
 end

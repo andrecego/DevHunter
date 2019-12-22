@@ -4,8 +4,10 @@
 
     <% if job.inscription(current_user) %>
       <div class="justify-self-end align-middle">
-        <%= content_tag(:span, class: "badge font-md badge-#{badge(job.inscription(current_user).status)}") do %>
-          <%= enum_translate(:inscription, :statuses, job.inscription(current_user).status) %>
+        <%= content_tag(:span, class: "badge font-lg badge-#{badge(job.inscription(current_user).status)}") do %>
+          <%= link_to status_path(job.inscription(current_user).status), class: 'label-btn' do %>
+            <%= enum_translate(:inscription, :statuses, job.inscription(current_user).status) %>
+          <% end %>
         <% end %>
       </div>
     <% end %>

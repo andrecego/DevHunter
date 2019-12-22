@@ -1,13 +1,21 @@
 <%= render 'jobs/job_full', job: @job %>
-<% if @user_applyed.present? %>
-  <%= content_tag(:p, 'Já inscrito', class: 'btn btn-green') %>
+
+<% if @inscription %>
+<%= "#{t('.status')}:" %>
+  <%= content_tag(:span, class: "badge font-lg badge-#{badge(@inscription.status)}") do %>
+    <%= link_to status_path(@inscription.status), class: 'label-btn' do %>
+      <%= enum_translate(:inscription, :statuses, @inscription.status) %>
+    <% end %>
+  <% end %>
 <% elsif user_signed_in? %>
   <%= button_to t('.apply_for_job'), 
       inscriptions_path(job_id: @job, user_id: current_user), 
-      class: 'btn btn-blue' %>
+      class: 'btn btn-success' %>
 <% end %>
+<hr>
+<%= link_to  t('.back'), :back, class: 'btn btn-blue mr-auto' %>
 
-<%= link_to  t('.back'), :back %>
+
 
 <% if hunter_signed_in? %>
   <h3><%= t('.candidates') %></h3>

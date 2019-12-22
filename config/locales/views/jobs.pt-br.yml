@@ -15,6 +15,7 @@ pt-BR:
       candidates: Candidatos
       no_candidate: Nenhum candidato até o momento
       apply_for_job: Candidatar a vaga
+      status: Status
     index:
       all_jobs: Todas Vagas
       no_job_available: Nenhuma vaga disponível

@@ -30,7 +30,10 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @user_applyed = @job.inscriptions.where(user: current_user)
+    if current_user
+      @user = current_user
+      @inscription = Inscription.find_by(job: @job, user: @user)
+    end
     @inscriptions = @job.inscriptions.order(starred: :desc)
   end
 
