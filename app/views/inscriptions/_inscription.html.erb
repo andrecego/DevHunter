@@ -44,6 +44,8 @@
       <div class="float-right">
         <%= button_to t('.reject'), new_inscription_rejection_path(inscription), 
             method: :get, class: 'btn btn-red' if inscription.pending? %>
+        <%= button_to t('.accept'), new_inscription_approval_path(inscription), 
+            method: :get, class: 'btn btn-green' if inscription.pending? %>
       </div>
   </div>
 

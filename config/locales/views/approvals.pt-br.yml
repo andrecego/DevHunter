@@ -1,0 +1,5 @@
+pt-BR:
+  approvals:
+    new:
+      approving_candidate: Aceitando candidato %{candidate}
+      send: Enviar

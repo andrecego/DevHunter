@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    model:
+      approval: Aprovar
+    attributes:
+      approval:
+        start_date: Data de Início
+        wage: Salário
+        aid: Benefícios
