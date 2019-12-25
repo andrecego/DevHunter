@@ -10,12 +10,12 @@ pt-BR:
       job_for: Vaga para %{job_title}
       not_disclosed: Não divulgado
       wage: Salário
+      status: Status
+      apply_for_job: Candidatar a vaga
     show:
       back: Voltar
       candidates: Candidatos
       no_candidate: Nenhum candidato até o momento
-      apply_for_job: Candidatar a vaga
-      status: Status
     index:
       all_jobs: Todas Vagas
       no_job_available: Nenhuma vaga disponível

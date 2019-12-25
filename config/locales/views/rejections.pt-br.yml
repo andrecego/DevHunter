@@ -3,3 +3,5 @@ pt-BR:
     new:
       rejecting_candidate: Rejeitando candidato %{candidate}
       reject: Rejeitar
+    rejection:
+      rejection_feedback: Motivo da recusa

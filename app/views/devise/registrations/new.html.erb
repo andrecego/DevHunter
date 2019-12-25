@@ -2,9 +2,9 @@
 <h2><%= t('.sign_up') %></h2>
 <div class="radio-toolbar row">
   <%= radio_button_tag :role, :headhunter, hunter_path? %>
-  <%= label_tag 'role[headhunter]', t('.headhunter'), class: 'col-6 mb-0' %>
+  <%= label_tag 'role[headhunter]', Hunter.model_name.human, class: 'col-6 mb-0' %>
   <%= radio_button_tag :role, :user, !hunter_path? %>
-  <%= label_tag 'role[user]', t('.user'), class: 'col-6 mb-0' %>
+  <%= label_tag 'role[user]', User.model_name.human, class: 'col-6 mb-0' %>
 
   <div class="form col-12 pb-3" id="headhunter">
     <%= render 'sign_up_form', resource: resource || Hunter.new, resource_name: :hunter %>
