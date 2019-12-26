@@ -58,7 +58,7 @@ You can find the tests files in the `/spec` folder, they are divided in subfolde
 
 - Database - SQLite3
 
-- Test Suite - [Capybara](https://github.com/teamcapybara/capybara) with [RSpec](https://github.com/rspec/rspec-rails), and [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
+- Test Suite - [Capybara](https://github.com/teamcapybara/capybara) with [RSpec](https://github.com/rspec/rspec-rails), [FactoryBot](https://github.com/thoughtbot/factory_bot_rails), and [SimpleCov](https://github.com/colszowka/simplecov)
 
 - Authentication - [Devise](https://github.com/plataformatec/devise)
 
