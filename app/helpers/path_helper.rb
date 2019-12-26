@@ -8,8 +8,10 @@ module PathHelper
   end
 
   def status_path(inscription)
-    case inscription.status
-    when 'rejected' then inscription_rejection_path(inscription, 1)
+    ins = inscription
+    case ins.status
+    when 'rejected' then inscription_rejection_path(ins, ins.rejection)
+    when 'approved' then inscription_approval_path(ins, ins.approval)
     end
   end
 end

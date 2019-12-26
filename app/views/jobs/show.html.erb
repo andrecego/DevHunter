@@ -1,6 +1,7 @@
 <%= render 'jobs/job_full', job: @job %>
 
 <%= render @rejection if @rejection %>
+<%= render @approval if @approval %>
 
 <hr>
 <%= link_to  t('.back'), jobs_path, class: 'btn btn-blue mr-auto' %>

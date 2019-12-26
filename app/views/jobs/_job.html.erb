@@ -1,7 +1,7 @@
 <div class="card col-lg-10 mx-auto bg-dark border-green my-3">
   <div class="card-header font-sm text-muted row">
     <%= content_tag(:span, t("activerecord.attributes.job.positions.#{job.position}"), class: 'mr-auto') %>
-
+    
     <% if job.inscription(current_user) %>
       <div class="justify-self-end align-middle">
         <%= content_tag(:span, class: "badge font-lg badge-#{badge(job.inscription(current_user).status)}") do %>

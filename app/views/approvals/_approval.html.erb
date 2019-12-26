@@ -1,0 +1,8 @@
+<div class="card bg-dark col-lg-8 mt-2 ">
+  <div class="card-body">
+    <div class="card-title color-green"><%= content_tag(:h5, t('.job_offering')) %></div>
+    <%= content_tag(:p, "#{Approval.human_attribute_name("start_date")}: #{l(@approval.start_date)}") %>
+    <%= content_tag(:p, "#{Approval.human_attribute_name("wage")}: #{number_to_currency(@approval.wage)}") %>
+    <%= content_tag(:p, "#{Approval.human_attribute_name("aid")}: #{@approval.aid}") %>
+  </div>
+</div>

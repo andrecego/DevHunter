@@ -3,3 +3,8 @@ pt-BR:
     new:
       approving_candidate: Aceitando candidato %{candidate}
       send: Enviar
+    index:
+      my_job_offers: Minhas propostas de emprego
+      no_approvals: Nenhuma proposta
+    approval:
+      job_offering: Proposta de emprego

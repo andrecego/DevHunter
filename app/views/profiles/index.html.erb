@@ -5,3 +5,5 @@
 <%= render 'profile', profile: @profile %>
 
 <%= link_to t('.my_jobs'), inscriptions_path %>
+
+<%= link_to t('.job_offers'), approvals_user_path(current_user) %>

@@ -4,6 +4,7 @@ class Inscription < ApplicationRecord
   belongs_to :user
   belongs_to :job
   has_one :rejection
+  has_one :approval
   validate :job_has_uniq_users, on: :create
   validate :user_has_a_profile
   validate :deadline_not_past
