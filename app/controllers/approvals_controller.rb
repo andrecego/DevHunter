@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 class ApprovalsController < ApplicationController
-  def index
-    @inscriptions = Inscription.where(user: current_user, status: 'approved')
-    @jobs = Job.where(id: @inscriptions.select(:job_id))
-  end
-
   def new
     @approval = Approval.new
     @inscription = Inscription.find(params[:inscription_id])

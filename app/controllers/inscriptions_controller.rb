@@ -2,13 +2,9 @@
 
 class InscriptionsController < ApplicationController
   before_action :check_hunter, only: :star
-  before_action :authenticate, only: %i[index create]
+  before_action :authenticate_user_only, only: %i[index create]
   def index
-    if current_hunter
-      @inscriptions = Job.where(hunter: current_hunter).inscriptions
-    else
-      @jobs = current_user.jobs.order(:deadline)
-    end
+    @jobs = current_user.jobs.order(:deadline)
   end
 
   def create
@@ -25,13 +21,11 @@ class InscriptionsController < ApplicationController
 
   def star
     @inscription = Inscription.find(params[:id])
-    if @inscription.update(starred: !@inscription.starred?)
-      flash[:notice] = 'Favoritado com sucesso'
-      redirect_to job_path(@inscription.job)
-    else
-      flash[:alert] = 'Algo deu errado'
-      redirect_to jobs_path
-    end
+    return unless @inscription.update(starred: !@inscription.starred?)
+
+    flash[:success] = 'Favoritado com sucesso' if @inscription.starred?
+    flash[:notice] = 'Desfavoritado com sucesso' unless @inscription.starred?
+    redirect_to job_path(@inscription.job)
   end
 
   private

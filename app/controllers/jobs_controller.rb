@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   before_action :authenticate_hunter_only, only: %i[new create]
   before_action :authenticate, only: %i[index show]
   before_action :inactivate_old_jobs, only: %i[index search]
+  before_action :authenticate_current_hunter, only: :show
 
   def index
     @jobs = if current_hunter
@@ -55,5 +56,13 @@ class JobsController < ApplicationController
     Job.where(status: 'active').each do |x|
       x.inactive! if Date.today > x.deadline
     end
+  end
+
+  def authenticate_current_hunter
+    return if current_user
+    return if Job.find(params[:id]).hunter == current_hunter
+
+    flash[:alert] = 'Essa não é uma vaga sua'
+    redirect_to root_path
   end
 end

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 feature 'Hunter view their jobs' do
-  scenario 'successfully' do
+  scenario 'by hunters area' do
     hunter = create(:hunter)
     create(:job, title: 'Dev Java', hunter: hunter)
     login_as(hunter, scope: :hunter)
@@ -26,6 +26,17 @@ feature 'Hunter view their jobs' do
 
     expect(page).to_not have_link('Dev Java')
     expect(page).to have_link('Dev Rails')
+  end
+
+  scenario 'and another hunter try to view it by url' do
+    hunter = create(:hunter)
+    another_hunter = create(:hunter, email: 'another@hunter.com')
+    job = create(:job, title: 'Dev Java', hunter: hunter)
+    login_as(another_hunter, scope: :hunter)
+
+    visit job_path(job)
+
+    expect(page).to have_content('Essa não é uma vaga sua')
   end
 
   scenario 'and is logged out' do

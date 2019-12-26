@@ -80,4 +80,28 @@ feature 'User just sign up and' do
       expect(page).to have_content('Você precisa ter mais que 14 anos')
     end
   end
+
+  feature 'user have a profile' do
+    scenario 'and tried to create a new one' do
+      user = create(:user)
+      create(:profile, status: 'complete', user: user)
+      login_as(user, scope: :user)
+
+      visit new_profile_path
+
+      expect(page).to have_content('Você já tem um perfil')
+    end
+  end
+
+  feature 'user dont have a profile' do
+    scenario 'and tried to view it' do
+      user = create(:user)
+      login_as(user, scope: :user)
+
+      visit profiles_path
+
+      expect(page).to have_content('Você ainda não tem um perfil')
+      expect(current_path).to eq(new_profile_path)
+    end
+  end
 end
