@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    model:
+      response: Resposta
+    attributes:
+      response:
+        comment: Comentário
+        status: Status
+        statuses:
+          pending: Pendente
+          rejected: Rejeitado
+          accepted: Aceito

@@ -10,6 +10,7 @@ module PathHelper
   def status_path(inscription)
     ins = inscription
     case ins.status
+    when 'pending' then job_path(ins.job)
     when 'rejected' then inscription_rejection_path(ins, ins.rejection)
     when 'approved' then inscription_approval_path(ins, ins.approval)
     end

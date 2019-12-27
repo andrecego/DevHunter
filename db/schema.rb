@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_25_124535) do
+ActiveRecord::Schema.define(version: 2019_12_27_130922) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -116,6 +116,15 @@ ActiveRecord::Schema.define(version: 2019_12_25_124535) do
     t.index ["inscription_id"], name: "index_rejections_on_inscription_id"
   end
 
+  create_table "responses", force: :cascade do |t|
+    t.text "comment"
+    t.integer "status", default: 0
+    t.integer "approval_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["approval_id"], name: "index_responses_on_approval_id"
+  end
+
   create_table "testes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -144,4 +153,5 @@ ActiveRecord::Schema.define(version: 2019_12_25_124535) do
   add_foreign_key "jobs", "testes", column: "testes_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "rejections", "inscriptions"
+  add_foreign_key "responses", "approvals"
 end

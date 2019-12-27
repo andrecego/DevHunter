@@ -42,3 +42,27 @@ feature 'User view approved status' do
     expect(page).to have_content('Nenhuma proposta')
   end
 end
+
+feature 'User got approved' do
+  scenario 'and accepted the offer' do
+    user = create(:user, email: 'candidate@email.com')
+    create(:profile, user: user)
+    hunter = create(:hunter)
+    job = create(:job, hunter: hunter, title: 'Estilista')
+    inscription = create(:inscription, job: job, user: user)
+    create(:approval, inscription: inscription, start_date: 7.days.from_now,
+                      wage: 2000, aid: 'VR e TR')
+    inscription.approved!
+    login_as(user, scope: :user)
+
+    visit root_path
+    click_on 'Minha conta'
+    click_on 'Minhas propostas'
+    click_on 'Aprovado'
+    click_on 'Analisar'
+    fill_in 'Comentário', with: 'Será um prazer trabalhar com vocês'
+    click_on 'Aceitar'
+
+    expect(page).to have_content('Proposta aceita')
+  end
+end
