@@ -44,25 +44,57 @@ feature 'User view approved status' do
 end
 
 feature 'User got approved' do
-  scenario 'and accepted the offer' do
-    user = create(:user, email: 'candidate@email.com')
-    create(:profile, user: user)
-    hunter = create(:hunter)
-    job = create(:job, hunter: hunter, title: 'Estilista')
-    inscription = create(:inscription, job: job, user: user)
-    create(:approval, inscription: inscription, start_date: 7.days.from_now,
-                      wage: 2000, aid: 'VR e TR')
-    inscription.approved!
-    login_as(user, scope: :user)
+  context 'and accepted the offer' do
+    before(:each) do
+      user = create(:user, email: 'candidate@email.com')
+      create(:profile, user: user)
+      hunter = create(:hunter)
+      job = create(:job, hunter: hunter, title: 'Estilista')
+      @inscription = create(:inscription, job: job, user: user)
+      @approval = create(:approval, inscription: @inscription, aid: 'VR e TR',
+                                    wage: 2000, start_date: 7.days.from_now)
+      @inscription.approved!
+      login_as(user, scope: :user)
+    end
 
-    visit root_path
-    click_on 'Minha conta'
-    click_on 'Minhas propostas'
-    click_on 'Aprovado'
-    click_on 'Analisar'
-    fill_in 'Comentário', with: 'Será um prazer trabalhar com vocês'
-    click_on 'Aceitar'
+    scenario 'with a comment' do
+      visit root_path
+      click_on 'Minha conta'
+      click_on 'Minhas propostas'
+      click_on 'Aprovado'
+      click_on 'Analisar'
+      fill_in 'Comentário', with: 'Será um prazer trabalhar com vocês'
+      click_on 'Aceitar'
 
-    expect(page).to have_content('Proposta aceita')
+      expect(page).to have_content('Proposta aceita')
+    end
+
+    scenario 'with no comment' do
+      visit root_path
+      click_on 'Minha conta'
+      click_on 'Minhas propostas'
+      click_on 'Aprovado'
+      click_on 'Analisar'
+      fill_in 'Comentário', with: ''
+      click_on 'Aceitar'
+
+      expect(page).to have_content('Proposta aceita')
+    end
+
+    scenario 'multiple times' do
+      visit root_path
+      click_on 'Minha conta'
+      click_on 'Minhas propostas'
+      click_on 'Aprovado'
+      click_on 'Analisar'
+      fill_in 'Comentário', with: 'Será um prazer trabalhar com vocês'
+      click_on 'Aceitar'
+
+      visit new_inscription_approval_response_path(@inscription, @approval)
+      fill_in 'Comentário', with: 'Quero aceitar a proposta de novo'
+      click_on 'Aceitar'
+
+      expect(page).to have_content('Apenas uma resposta por proposta')
+    end
   end
 end

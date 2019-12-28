@@ -13,6 +13,7 @@ module PathHelper
     when 'pending' then job_path(ins.job)
     when 'rejected' then inscription_rejection_path(ins, ins.rejection)
     when 'approved' then inscription_approval_path(ins, ins.approval)
+    when 'hired' then job_path(ins.job)
     end
   end
 end

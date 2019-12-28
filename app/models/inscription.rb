@@ -9,7 +9,7 @@ class Inscription < ApplicationRecord
   validate :user_has_a_profile
   validate :deadline_not_past
 
-  enum status: { pending: 0, rejected: 5, approved: 10 }
+  enum status: { pending: 0, rejected: 5, approved: 10, hired: 15 }
 
   def user_has_a_profile
     return if user.profile.present? && !user.profile.pending?
@@ -24,7 +24,7 @@ class Inscription < ApplicationRecord
   end
 
   def deadline_not_past
-    return if Date.today <= job.deadline
+    return if Date.today <= job.deadline || !pending?
 
     errors.add(:base, 'Prazo acabou')
   end

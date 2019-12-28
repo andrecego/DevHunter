@@ -13,7 +13,7 @@ class Profile < ApplicationRecord
 
   def must_be_older_than_fourteen_years_old
     return if birthdate.blank?
-    return if birthdate <= 14.years.ago
+    return if birthdate <= 14.years.ago.to_date
 
     errors.add(:base, 'Você precisa ter mais que 14 anos')
   end

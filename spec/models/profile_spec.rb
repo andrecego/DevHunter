@@ -20,7 +20,7 @@ describe Profile do
       expect(profile.errors).to be_empty
     end
 
-    it 'and its one day of 14 years old' do
+    it 'and its one day off 14 years old' do
       profile = build(:profile, birthdate: 14.years.ago + 1.day)
 
       profile.valid?

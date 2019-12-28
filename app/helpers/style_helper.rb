@@ -14,7 +14,8 @@ module StyleHelper
     case status
     when 'pending' then 'warning'
     when 'rejected' then 'danger'
-    when 'approved' then 'success'
+    when 'approved' then 'info'
+    when 'hired' then 'success'
     end
   end
 end

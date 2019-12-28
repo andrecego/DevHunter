@@ -2,6 +2,7 @@
 
 class Approval < ApplicationRecord
   belongs_to :inscription
+  has_one :response
   validates :start_date, :wage, :aid, presence: true
   validate :wage_more_than_job_min_wage
 
