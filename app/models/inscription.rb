@@ -9,7 +9,8 @@ class Inscription < ApplicationRecord
   validate :user_has_a_profile
   validate :deadline_not_past
 
-  enum status: { pending: 0, rejected: 5, approved: 10, hired: 15 }
+  enum status: { pending: 0, rejected: 5, approved: 10, hired: 15,
+                 declined: 20 }
 
   def user_has_a_profile
     return if user.profile.present? && !user.profile.pending?

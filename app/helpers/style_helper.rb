@@ -16,6 +16,7 @@ module StyleHelper
     when 'rejected' then 'danger'
     when 'approved' then 'info'
     when 'hired' then 'success'
+    when 'declined' then 'secondary'
     end
   end
 end

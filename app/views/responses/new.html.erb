@@ -8,6 +8,7 @@
       <%= f.text_area :comment, class: 'form-control' %>
     </div>
   
-    <%= f.submit t('.accept'), class: 'btn btn-green float-right' %>
+    <%= f.submit t('.decline'), name: 'decline', class: 'btn btn-red' %>
+    <%= f.submit t('.accept'), name: 'accept', class: 'btn btn-green float-right' %>
   <% end %>
 </div>

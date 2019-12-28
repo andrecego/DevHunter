@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApprovalsController < ApplicationController
+  before_action :authenticate_hunter_only, only: %i[new create]
   def new
     @approval = Approval.new
     @inscription = Inscription.find(params[:inscription_id])

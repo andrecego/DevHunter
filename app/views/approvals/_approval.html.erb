@@ -4,8 +4,10 @@
     <%= content_tag(:p, "#{Approval.human_attribute_name("start_date")}: #{l(@approval.start_date)}") %>
     <%= content_tag(:p, "#{Approval.human_attribute_name("wage")}: #{number_to_currency(@approval.wage)}") %>
     <%= content_tag(:p, "#{Approval.human_attribute_name("aid")}: #{@approval.aid}") %>
-    <div class="float-right">
-      <%= link_to t('.analyse'), new_inscription_approval_response_path(@approval.inscription, @approval), class: 'btn btn-blue' %>
-    </div>
+    <% if @approval.inscription.approved? %>
+      <div class="float-right">
+        <%= link_to t('.analyse'), new_inscription_approval_response_path(@approval.inscription, @approval), class: 'btn btn-blue' %>
+      </div>
+    <% end %>
   </div>
 </div>

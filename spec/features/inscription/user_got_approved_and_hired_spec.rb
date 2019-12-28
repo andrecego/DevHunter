@@ -46,15 +46,15 @@ end
 feature 'User got approved' do
   context 'and accepted the offer' do
     before(:each) do
-      user = create(:user, email: 'candidate@email.com')
-      create(:profile, user: user)
+      @user = create(:user, email: 'candidate@email.com')
+      create(:profile, user: @user)
       hunter = create(:hunter)
       job = create(:job, hunter: hunter, title: 'Estilista')
-      @inscription = create(:inscription, job: job, user: user)
+      @inscription = create(:inscription, job: job, user: @user)
       @approval = create(:approval, inscription: @inscription, aid: 'VR e TR',
                                     wage: 2000, start_date: 7.days.from_now)
       @inscription.approved!
-      login_as(user, scope: :user)
+      login_as(@user, scope: :user)
     end
 
     scenario 'with a comment' do
@@ -95,6 +95,28 @@ feature 'User got approved' do
       click_on 'Aceitar'
 
       expect(page).to have_content('Apenas uma resposta por proposta')
+    end
+
+    scenario 'and had multiple other offers' do
+      other_inscription = create(:inscription, user: @user)
+      create(:approval, inscription: other_inscription, aid: 'VR e TR',
+                        wage: 2500, start_date: 9.days.from_now)
+      other_inscription.approved!
+
+      another_inscription = create(:inscription, user: @user)
+      create(:approval, inscription: another_inscription, aid: 'VR e TR',
+                        wage: 1500, start_date: 5.days.from_now)
+      another_inscription.approved!
+
+      visit inscription_approval_path(@inscription, @approval)
+      click_on 'Analisar'
+      fill_in 'Comentário', with: 'Será um prazer trabalhar com vocês'
+      click_on 'Aceitar'
+      click_on 'Minha conta'
+      click_on 'Minhas vagas'
+
+      expect(page).to have_content('Contratado', count: 1)
+      expect(page).to have_content('Recusado', count: 2)
     end
   end
 end
