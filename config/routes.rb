@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :jobs, only: %i[index new create show] do
     get 'search', on: :collection
+    put 'inactivate', on: :member
   end
   resources :profiles, only: %i[index new create show edit update] do
     resources :comments, only: %i[new create]

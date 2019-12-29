@@ -3,10 +3,17 @@
 <%= render @rejection if @rejection %>
 <%= render @approval if @approval %>
 
-<%= link_to  t('.back'), jobs_path, class: 'btn btn-blue mr-auto mt-2' %>
-<hr>
+<%= link_to t('.back'), jobs_path, class: 'btn btn-blue mr-auto mt-2' %>
 
 <% if hunter_signed_in? %>
+
+  <%= content_tag(:span, class: "btn btn-#{badge(@job.status)} mt-2") do %>
+    <%= "#{Job.human_attribute_name('status')}:" %>
+    <%= enum_translate(:job, :statuses, @job.status) %>
+  <% end %>
+  
+  <%= link_to t('.inactivate_job'), inactivate_job_path(@job), method: :put, class: 'btn btn-red mt-2' if @job.active? %>
+  <hr>
 
   <% if @hired.present? %>
     <%= content_tag(:h3, t('.hired')) %>

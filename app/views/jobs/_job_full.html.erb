@@ -35,7 +35,7 @@
         <%= enum_translate(:inscription, :statuses, @inscription.status) %>
       <% end %>
     <% end %>
-  <% elsif user_signed_in? %>
+  <% elsif user_signed_in? && job.active? %>
       <%= button_to t('.apply_for_job'), 
           inscriptions_path(job_id: @job, user_id: current_user), 
           class: 'btn btn-success' %>

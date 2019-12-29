@@ -9,6 +9,7 @@ class Inscription < ApplicationRecord
   validate :job_has_uniq_users, on: :create
   validate :user_has_a_profile
   validate :deadline_not_past
+  validate :job_is_active
 
   enum status: { pending: 0, rejected: 5, approved: 10, hired: 15,
                  declined: 20 }
@@ -29,5 +30,12 @@ class Inscription < ApplicationRecord
     return if Date.today <= job.deadline || !pending?
 
     errors.add(:base, 'Prazo acabou')
+  end
+
+  def job_is_active
+    return unless pending?
+    return if job.active?
+
+    errors.add(:base, 'Vaga está inativa')
   end
 end

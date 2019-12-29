@@ -8,9 +8,9 @@ class JobsController < ApplicationController
 
   def index
     @jobs = if current_hunter
-              Job.where(hunter: current_hunter)
+              Job.where(status: :active, hunter: current_hunter)
             else
-              Job.all
+              Job.where(status: :active)
             end
   end
 
@@ -46,6 +46,13 @@ class JobsController < ApplicationController
     @jobs = @jobs.select { |x| x.hunter == current_hunter } if current_hunter
   end
 
+  def inactivate
+    @job = Job.find(params[:id])
+    disable_job
+    flash[:success] = 'Vaga encerrada'
+    redirect_to @job
+  end
+
   private
 
   def job_params
@@ -66,5 +73,20 @@ class JobsController < ApplicationController
 
     flash[:alert] = 'Essa não é uma vaga sua'
     redirect_to root_path
+  end
+
+  def disable_job
+    @job.inactive!
+    @job.inscriptions.map do |inscription|
+      inscription.declined! if inscription.approved?
+      rejection(inscription) if inscription.pending?
+    end
+  end
+
+  def rejection(inscription)
+    Rejection.create(
+      feedback: 'Vaga terminada', inscription: inscription
+    )
+    inscription.rejected!
   end
 end

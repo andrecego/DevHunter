@@ -18,6 +18,7 @@ pt-BR:
       no_candidate: Nenhum candidato até o momento
       hired: Contratado(s)
       declined: Recusado(s)
+      inactivate_job: Encerrar vaga
     index:
       all_jobs: Todas Vagas
       no_job_available: Nenhuma vaga disponível

@@ -19,3 +19,7 @@ pt-BR:
           senior: Sênior
           expert: Especialista
           manager: Diretor
+        status: Status
+        statuses:
+          active: Ativo
+          inactive: Inativo

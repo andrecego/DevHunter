@@ -142,4 +142,28 @@ describe Inscription do
       end
     end
   end
+
+  describe '.job_is_active' do
+    it 'success' do
+      user = create(:user)
+      create(:profile, user: user)
+      job = create(:job, deadline: 1.day.from_now)
+      inscription = build(:inscription, job: job, user: user)
+
+      inscription.valid?
+
+      expect(inscription.errors).to be_empty
+    end
+
+    it 'and its inactive' do
+      user = create(:user)
+      create(:profile, user: user)
+      job = create(:job, deadline: 1.day.from_now, status: :inactive)
+      inscription = build(:inscription, job: job, user: user)
+
+      inscription.valid?
+
+      expect(inscription.errors.full_messages).to eq(['Vaga está inativa'])
+    end
+  end
 end
