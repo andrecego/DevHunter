@@ -3,3 +3,6 @@ pt-BR:
     inscription:
       reject: Rejeitar
       accept: Aceitar
+    response:
+      no_comment_from_user: Sem comentários do usuário
+      hired: Contratado(s)

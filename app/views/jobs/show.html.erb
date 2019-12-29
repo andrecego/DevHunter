@@ -3,10 +3,18 @@
 <%= render @rejection if @rejection %>
 <%= render @approval if @approval %>
 
+<%= link_to  t('.back'), jobs_path, class: 'btn btn-blue mr-auto mt-2' %>
 <hr>
-<%= link_to  t('.back'), jobs_path, class: 'btn btn-blue mr-auto' %>
 
 <% if hunter_signed_in? %>
+
+  <% @hired.each do |inscription| %>
+    <%= render('inscriptions/response', inscription: inscription) %>
+  <% end %>
+
+  <% @declined.each do |inscription| %>
+    <%= render('inscriptions/response', inscription: inscription) %>
+  <% end %>
   <h3><%= t('.candidates') %></h3>
   <%= render(@inscriptions) || t('.no_candidate') %>
 <% end %>

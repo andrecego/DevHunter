@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono&display=swap');@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono&display=swap');
+@import "bootstrap";
 @import "font-awesome";
 @import "navbar";
 @import "form";
@@ -22,4 +23,8 @@ body {
 
 a {
   color: $blue;
+}
+
+hr{
+  border-bottom: 1px solid $white;
 }

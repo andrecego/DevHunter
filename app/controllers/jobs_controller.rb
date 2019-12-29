@@ -35,7 +35,9 @@ class JobsController < ApplicationController
       @user = current_user
       @inscription = Inscription.find_by(job: @job, user: @user)
     end
-    @inscriptions = @job.inscriptions.order(starred: :desc)
+    all_inscriptions = @job.inscriptions.order(starred: :desc)
+    @hired, @inscriptions = all_inscriptions.partition(&:hired?)
+    @declined, @inscriptions = all_inscriptions.partition(&:declined?)
   end
 
   def search

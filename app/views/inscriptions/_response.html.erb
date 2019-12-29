@@ -1,0 +1,12 @@
+<%= content_tag(:h3, t('.hired')) %>
+<%= render 'inscriptions/inscription', inscription: inscription %>
+
+<div class="card text-dark">
+  <div class="card-footer">
+    <p>
+      <%= content_tag(:strong, "#{Response.human_attribute_name('comment')}:") %>
+      <%= inscription.response.comment.blank? ? t('.no_comment_from_user') : inscription.response.comment %>
+    </p>
+  </div>
+</div>
+<hr>
