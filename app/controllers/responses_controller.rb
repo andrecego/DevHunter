@@ -23,14 +23,28 @@ class ResponsesController < ApplicationController
 
   def accept_job
     if @response.save
-      @response.accepted!
-      @approval.inscription.hired!
-      current_user.inscriptions.where.not(status: 'hired').map(&:declined!)
+      hired
       flash[:success] = 'Proposta aceita'
     else
       flash[:error] = 'Apenas uma resposta por proposta'
     end
     redirect_to root_path
+  end
+
+  def hired
+    @response.accepted!
+    @approval.inscription.hired!
+    current_user.inscriptions.map do |inscription|
+      inscription.declined! if inscription.approved?
+      rejection(inscription) if inscription.pending?
+    end
+  end
+
+  def rejection(inscription)
+    Rejection.create(
+      feedback: 'Contratado para outra vaga', inscription: inscription
+    )
+    inscription.rejected!
   end
 
   def decline_job

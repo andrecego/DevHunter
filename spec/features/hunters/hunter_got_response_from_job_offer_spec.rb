@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Headhunter received response from job offer' do
@@ -14,28 +16,29 @@ feature 'Headhunter received response from job offer' do
       @response = create(:response, approval: approval)
       @response.accepted!
       inscription.hired!
-      user.inscriptions.where.not(status: 'hired').map(&:declined!)
+      user.inscriptions.where(status: 'approved').map(&:declined!)
+      user.inscriptions.where(status: 'pending').map(&:rejected!)
       login_as(hunter, scope: :hunter)
     end
 
     scenario 'with a comment' do
       @response.update_attribute(:comment, 'Ansioso para começar')
-  
+
       visit root_path
       click_on 'Vagas'
       click_on 'Estilista'
-  
+
       expect(page).to have_content('Contratado')
       expect(page).to have_content('Comentário: Ansioso para começar')
     end
 
     scenario 'with no comment' do
       @response.update_attribute(:comment, '')
-  
+
       visit root_path
       click_on 'Vagas'
       click_on 'Estilista'
-  
+
       expect(page).to have_content('Contratado')
       expect(page).to have_content('Comentário: Sem comentários do usuário')
     end
@@ -59,25 +62,24 @@ feature 'Headhunter received response from job offer' do
 
     scenario 'with a comment' do
       @response.update_attribute(:comment, 'Tenho outro compromisso')
-  
+
       visit root_path
       click_on 'Vagas'
       click_on 'Estilista'
-  
+
       expect(page).to have_content('Recusado')
       expect(page).to have_content('Comentário: Tenho outro compromisso')
     end
 
     scenario 'with no comment' do
       @response.update_attribute(:comment, '')
-  
+
       visit root_path
       click_on 'Vagas'
       click_on 'Estilista'
-  
+
       expect(page).to have_content('Recusado')
       expect(page).to have_content('Comentário: Sem comentários do usuário')
     end
   end
-
 end

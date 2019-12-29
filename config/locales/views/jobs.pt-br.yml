@@ -16,6 +16,8 @@ pt-BR:
       back: Voltar
       candidates: Candidatos
       no_candidate: Nenhum candidato até o momento
+      hired: Contratado(s)
+      declined: Recusado(s)
     index:
       all_jobs: Todas Vagas
       no_job_available: Nenhuma vaga disponível

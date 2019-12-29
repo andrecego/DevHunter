@@ -37,7 +37,7 @@ class JobsController < ApplicationController
     end
     all_inscriptions = @job.inscriptions.order(starred: :desc)
     @hired, @inscriptions = all_inscriptions.partition(&:hired?)
-    @declined, @inscriptions = all_inscriptions.partition(&:declined?)
+    @declined, @inscriptions = @inscriptions.partition(&:declined?)
   end
 
   def search

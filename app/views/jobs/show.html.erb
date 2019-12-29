@@ -8,13 +8,20 @@
 
 <% if hunter_signed_in? %>
 
-  <% @hired.each do |inscription| %>
-    <%= render('inscriptions/response', inscription: inscription) %>
+  <% if @hired.present? %>
+    <%= content_tag(:h3, t('.hired')) %>
+    <% @hired.each do |inscription| %>
+      <%= render('inscriptions/response', inscription: inscription) %>
+    <% end %> 
   <% end %>
 
-  <% @declined.each do |inscription| %>
-    <%= render('inscriptions/response', inscription: inscription) %>
+  <% if @declined.present? %>
+    <%= content_tag(:h3, t('.declined')) %>
+    <% @declined.each do |inscription| %>
+      <%= render('inscriptions/response', inscription: inscription) %>
+    <% end %>
   <% end %>
+  
   <h3><%= t('.candidates') %></h3>
   <%= render(@inscriptions) || t('.no_candidate') %>
 <% end %>

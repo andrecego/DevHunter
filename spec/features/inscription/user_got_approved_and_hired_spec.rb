@@ -118,5 +118,34 @@ feature 'User got approved' do
       expect(page).to have_content('Contratado', count: 1)
       expect(page).to have_content('Recusado', count: 2)
     end
+
+    scenario 'and had pending inscriptions' do
+      create(:inscription, user: @user)
+      create(:inscription, user: @user)
+
+      visit inscription_approval_path(@inscription, @approval)
+      click_on 'Analisar'
+      fill_in 'Comentário', with: 'Será um prazer trabalhar com vocês'
+      click_on 'Aceitar'
+      click_on 'Minha conta'
+      click_on 'Minhas vagas'
+
+      expect(page).to have_content('Contratado', count: 1)
+      expect(page).to have_content('Rejeitado', count: 2)
+    end
+
+    scenario 'and had view pending inscriptions feedback' do
+      create(:inscription, user: @user)
+
+      visit inscription_approval_path(@inscription, @approval)
+      click_on 'Analisar'
+      fill_in 'Comentário', with: 'Será um prazer trabalhar com vocês'
+      click_on 'Aceitar'
+      click_on 'Minha conta'
+      click_on 'Minhas vagas'
+      click_on 'Rejeitado'
+
+      expect(page).to have_content('Contratado para outra vaga')
+    end
   end
 end
