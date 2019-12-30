@@ -6,15 +6,13 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   resources :headhunters, only: %i[index show]
-  resources :users, only: :index do
-    get 'approvals', on: :member
-  end
   resources :jobs, only: %i[index new create show] do
     get 'search', on: :collection
     put 'inactivate', on: :member
   end
   resources :profiles, only: %i[index new create show edit update] do
     resources :comments, only: %i[new create]
+    get 'approvals', on: :member
   end
   resources :inscriptions, only: %i[index create] do
     put 'star', on: :member

@@ -7,11 +7,8 @@ class JobsController < ApplicationController
   before_action :authenticate_current_hunter, only: :show
 
   def index
-    @jobs = if current_hunter
-              Job.where(status: :active, hunter: current_hunter)
-            else
-              Job.where(status: :active)
-            end
+    @jobs = Job.where(status: :active).order(deadline: :asc)
+    @jobs = @jobs.where(hunter: current_hunter) if current_hunter
   end
 
   def new
@@ -41,9 +38,11 @@ class JobsController < ApplicationController
   end
 
   def search
-    @jobs = Job.where('title like ?', "%#{params[:q]}%")
+    @jobs = Job.where(status: :active)
+               .where('title like ?', "%#{params[:q]}%")
                .or(Job.where('description like ?', "%#{params[:q]}%"))
-    @jobs = @jobs.select { |x| x.hunter == current_hunter } if current_hunter
+               .order(deadline: :asc)
+    @jobs = @jobs.where(hunter: current_hunter) if current_hunter
   end
 
   def inactivate

@@ -26,7 +26,7 @@ feature 'User with a completed profile' do
     click_on 'Minha conta'
     click_on 'Editar minha conta'
 
-    expect(current_path).to eq edit_user_registration_path(user)
+    expect(current_path).to eq edit_user_registration_path
   end
 
   scenario 'view path for his applied jobs' do

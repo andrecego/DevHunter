@@ -2,6 +2,7 @@
 
 class ProfilesController < ApplicationController
   before_action :authenticate
+  before_action :authenticate_user_only, only: %i[new create edit approval]
   before_action :user_have_profile, only: %i[new create]
   before_action :user_dont_have_profile, only: %i[show index]
   def index
@@ -32,6 +33,14 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = current_user.profile
+  end
+
+  def approvals
+    @inscriptions = Inscription.where('user_id= ? AND (status= ? OR status= ?)',
+                                      params[:id], Inscription.statuses[:hired],
+                                      Inscription.statuses[:approved])
+    @jobs = Job.where(id: @inscriptions.select(:job_id))
+    render 'approvals/index'
   end
 
   private

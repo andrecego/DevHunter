@@ -1,7 +1,7 @@
 <h3><%= t('.hunter_area') %></h3>
 
-<%= link_to  t('.register_new_job'), new_job_path %>
-<%= link_to t('.back'), :back %>
+<%= link_to  t('.register_new_job'), new_job_path, class: 'btn btn-info' %>
+<%= link_to t('.back'), :back, class: 'btn btn-blue' %>
 <br />
 
 <%= render @jobs %>

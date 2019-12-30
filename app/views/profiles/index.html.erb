@@ -1,9 +1,12 @@
-<div class="row">
-  <%= content_tag :p, current_user.email, class: 'col-6' %>
-  <%= link_to t('.edit_my_account'), edit_user_registration_path(current_user)%>
+<div class="mb-3 card bg-dark col-md-10">
+  <div class="card-body row">
+    <%= content_tag :span, current_user.email, class: 'card-title mr-auto' %>
+    <%= link_to t('.edit_my_account'), edit_user_registration_path, class: 'btn btn-blue float-right' %>
+  </div>
 </div>
 <%= render 'profile', profile: @profile %>
 
-<%= link_to t('.my_jobs'), inscriptions_path %>
-
-<%= link_to t('.job_offers'), approvals_user_path(current_user) %>
+<div class="mt-2">
+  <%= link_to t('.my_jobs'), inscriptions_path, class: 'btn btn-info' %>
+  <%= link_to t('.job_offers'), approvals_profile_path(current_user), class: 'btn btn-green' %>
+</div>
