@@ -1,7 +1,10 @@
 <div id="profile" class="card bg-dark col-md-10">
-  <%= image_tag profile.picture, class: 'card-img-top' if profile.picture.present? %>
   <dl class="card-body">
-    <h3 class="card-title text-green"><%= profile.full_name %></h3>
+
+    <div class="row mb-3">
+      <%= image_tag profile.picture, class: 'card-img-top col-sm-2' if profile.picture.present? %>
+      <h3 class="card-title text-green"><%= profile.full_name %></h3>
+    </div>
 
     <div class="card-text">
       <% if profile.social_name.present? %>

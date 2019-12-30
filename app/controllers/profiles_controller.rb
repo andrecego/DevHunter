@@ -2,7 +2,8 @@
 
 class ProfilesController < ApplicationController
   before_action :authenticate
-  before_action :authenticate_user_only, only: %i[new create edit approval]
+  before_action :authenticate_user_only, only: %i[index new create edit update
+                                                  approval]
   before_action :user_have_profile, only: %i[new create]
   before_action :user_dont_have_profile, only: %i[show index]
   def index
@@ -18,7 +19,7 @@ class ProfilesController < ApplicationController
     @profile.set_status
     if @profile.save
       flash[:notice] = 'Perfil salvo com sucesso'
-      redirect_to @profile
+      redirect_to profiles_path
     else
       flash[:alert] = 'Algo deu errado'
       render :new
@@ -33,6 +34,18 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = current_user.profile
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+    @profile.set_status
+    if @profile.update(profile_params)
+      flash[:notice] = 'Perfil atualizado com sucesso'
+      redirect_to profiles_path
+    else
+      flash[:alert] = 'Algo deu errado'
+      render :new
+    end
   end
 
   def approvals
