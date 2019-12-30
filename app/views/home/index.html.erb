@@ -1,1 +1,108 @@
-<h1>DevHunter</h1>
+<div class="banner position-relative text-center">
+  <div class="banner-text">
+    <h1 class="display-2 mb-5"><strong><span>Dev</span>Hunter</strong></h1>
+    <h3>Onde o <span>Dev</span> se desenvolve</h3>
+  </div>
+  <%= image_tag 'banner.png', class: 'img-fluid' %>
+</div>
+
+<div class="languages">
+  <div class="row container pt-5 m-auto text-center">
+
+    <div class="col-lg-4">
+      <%= image_tag 'ruby.png', {class: 'mb-3', width: '100', height: '100'} %>
+      <h2>Ruby</h2>
+      <p>Ruby é uma linguagem de programação interpretada multiparadigma, de tipagem dinâmica e forte, com gerenciamento de memória automático. 
+        </p>
+      <p><%= link_to 'Vagas de Ruby', search_jobs_path(q: 'Ruby'), class: 'btn btn-red mb-5' %></p>
+    </div>
+
+    <div class="col-lg-4">
+      <%= image_tag 'js.png', {class: 'mb-3', width: '100', height: '100'} %>
+
+      <h2>JavaScript</h2>
+      <p>JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca 
+        e multi-paradigma. Muito popular por ser multipropósitos</p>
+      <p><%= link_to 'Vagas de JavaScript', search_jobs_path(q: 'JavaScript'), class: 'btn btn-yellow mb-5' %></p>
+      </div>
+
+    <div class="col-lg-4">
+      <%= image_tag 'python.png', {class: 'mb-3', width: '100', height: '100'} %>
+      <h2>Python</h2>
+      <p>Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. </p>
+      <p><%= link_to 'Vagas de Python', search_jobs_path(q: 'Python'), class: 'btn btn-blue mb-5' %></p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="coding">
+  <div class="row featurette container m-auto">
+    <div class="col-md-6 mr-auto">
+      <h2 class="featurette-heading"><strong>Não fique na zona de conforto</strong></h2>
+      <hr>
+      <br/>
+      <p class="lead">Seja aprender novas linguagens, ou se aprimorar em alguma que já utiliza, sempre há espaço 
+                      para aprender coisas novas. </p>
+      <p class="lead">Queremos juntar desenvolvedores com sede de conhecimento e empresas que estejam dispostas
+                      a sempre capacitar e incentivar seus colaboradores. </p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag 'coding.png', {class: 'featurette-image img-fluid mx-auto'} %>
+    </div>
+  </div>
+</div>
+
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-6 col-md">
+      <h5>Back-end</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Ruby</a></li>
+        <li><a class="text-muted" href="#">JavaScript</a></li>
+        <li><a class="text-muted" href="#">Elixir</a></li>
+        <li><a class="text-muted" href="#">Clojure</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Front-end</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Angular</a></li>
+        <li><a class="text-muted" href="#">Node</a></li>
+        <li><a class="text-muted" href="#">React</a></li>
+        <li><a class="text-muted" href="#">Vue JS</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Headhunter</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Cadastre-se</a></li>
+        <li><a class="text-muted" href="#">Registre sua Empresa</a></li>
+        <li><a class="text-muted" href="#">Anuncie sua Vaga</a></li>
+        <li><a class="text-muted" href="#">Vantagens</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Sobre</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Sobre nós</a></li>
+        <li><a class="text-muted" href="#">Nosso Objetivo</a></li>
+        <li><a class="text-muted" href="#">Privacidade</a></li>
+        <li><a class="text-muted" href="#">Termos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-12 col-md text-center">
+    <hr>
+    <small class="d-block mb-3 text-muted"><%= link_to 'andre gomes', 'https://github.com/andrecego' %> © 2019 </small>
+  </div>
+</footer>
+
+<style>
+body #yield{
+  margin-top: 0 !important;
+  margin: 0; 
+  padding: 0;
+  max-width: none;
+}
+</style>

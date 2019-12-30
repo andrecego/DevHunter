@@ -1,0 +1,48 @@
+@media (max-width: 768px) {
+  .display-2 {
+    font-size: 50px;
+  }
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner-text{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.banner-text h1 {
+  font-family: 'Audiowide', cursive;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0 20px 0 20px;
+}
+
+.banner-text h3 {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px 10px 20px;
+}
+
+.banner-text span {
+  color: $green;
+}
+
+.languages {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.coding {
+  background-color: white;
+  color: black;
+  padding: 40px;
+}
+
+footer small a:hover {
+  text-decoration: none;
+}

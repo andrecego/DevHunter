@@ -2,7 +2,7 @@
 
 class JobsController < ApplicationController
   before_action :authenticate_hunter_only, only: %i[new create]
-  before_action :authenticate, only: %i[index show]
+  before_action :authenticate, only: %i[index show search]
   before_action :inactivate_old_jobs, only: %i[index search]
   before_action :authenticate_current_hunter, only: :show
 

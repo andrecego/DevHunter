@@ -74,6 +74,15 @@ input[value=headhunter] + label {
   }
 }
 
+.btn-yellow {
+  background-color: $yellow;
+  color: #fff;
+  &:hover {
+    background-color: #ffd83a;
+    color: $white;
+  }
+}
+
 .error-msg {
   background-color: $black;
   color: #00ff00;
@@ -111,5 +120,5 @@ input[value=headhunter] + label {
 }
 
 .right {
-  right: 0;
+  justify-content: flex-end;
 }

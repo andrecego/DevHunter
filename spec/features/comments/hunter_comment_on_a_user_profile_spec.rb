@@ -12,6 +12,8 @@ feature 'Hunter comment' do
     end
 
     scenario 'successfully' do
+      # as vezes quebra na primeira rodagem, ou ao mudar o app.scss por nao
+      # achar variavel do sass, porem ao rodar novamente funciona perfeitamente
       job = create(:job, title: 'Vaga para Dev', hunter: @hunter)
       create(:inscription, job: job, user: @user)
 
