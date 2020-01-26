@@ -87,11 +87,9 @@ ActiveRecord::Schema.define(version: 2019_12_27_130922) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "testes_id"
     t.integer "hunter_id"
     t.integer "status", default: 0
     t.index ["hunter_id"], name: "index_jobs_on_hunter_id"
-    t.index ["testes_id"], name: "index_jobs_on_testes_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -125,12 +123,6 @@ ActiveRecord::Schema.define(version: 2019_12_27_130922) do
     t.index ["approval_id"], name: "index_responses_on_approval_id"
   end
 
-  create_table "testes", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -150,7 +142,6 @@ ActiveRecord::Schema.define(version: 2019_12_27_130922) do
   add_foreign_key "inscriptions", "jobs"
   add_foreign_key "inscriptions", "users"
   add_foreign_key "jobs", "hunters"
-  add_foreign_key "jobs", "testes", column: "testes_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "rejections", "inscriptions"
   add_foreign_key "responses", "approvals"

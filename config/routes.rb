@@ -21,4 +21,10 @@ Rails.application.routes.draw do
       resources :responses, only: %i[new create]
     end
   end
+
+  namespace 'api' do
+    namespace 'v1' do
+      resources :jobs, only: %i[index show create update destroy]
+    end
+  end
 end
