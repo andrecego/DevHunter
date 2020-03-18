@@ -1,32 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Audiowide&display=swap');
 @import "bootstrap";
-@import "font-awesome";
 @import "home";
 @import "navbar";
 @import "form";
 @import "cards";
 
 
-$green: #44BBA4;
-$blue: #03a9f4;
-$black: #000000;
-$white: #F6F7EB;
-$red: #D00000;
-$yellow: #dab92d;
-
 html body {
   font-family: 'Overpass Mono', monospace;
 }
 body {
-  background-color: $black;
-  color: $white;
+  background-color: #000000;
+  color: #F6F7EB;
 }
 
 a {
-  color: $blue;
+  color: #03a9f4;
 }
 
 hr{
-  border-bottom: 1px solid $white;
+  border-bottom: 1px solid #F6F7EB;
 }
