@@ -15,7 +15,7 @@ gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.1'
 gem 'rubocop', require: false
 gem 'sass-rails', '>= 6'
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
@@ -24,6 +24,7 @@ group :development, :test do
   gem 'capybara', '>= 2.15'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.9'
+  gem 'sqlite3'
 end
 
 group :development do

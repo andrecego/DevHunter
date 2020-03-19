@@ -9,13 +9,13 @@ input[value=user]:checked ~ #user {
 }
 
 #headhunter {
-  background-color: $black;
-  color: $white
+  background-color: #000000;
+  color: #FFF
 }
 
 #user {
-  background-color: $white;
-  color: $black;
+  background-color: #FFF;
+  color: #000000;
 }
 
 .radio-toolbar {
@@ -39,20 +39,20 @@ input[value=user]:checked ~ #user {
 
 input[value=user] + label {
   background-color: #fff;
-  color: $black;
+  color: #000000;
 }
 
 input[value=headhunter] + label {
   background-color: #000;
-  color: $white;
+  color: #FFF;
 }
 
 .btn-blue {
-  background-color: $blue;
+  background-color: #03a9f4;
   color: #fff;
   &:hover {
     background-color: #00a;
-    color: $white;
+    color: #FFF;
   }
 }
 
@@ -61,30 +61,30 @@ input[value=headhunter] + label {
   color: #fff;
   &:hover {
     background-color: #0a0;
-    color: $white;
+    color: #FFF;
   }
 }
 
 .btn-red {
-  background-color: $red;
+  background-color: #D00000;
   color: #fff;
   &:hover {
     background-color: red;
-    color: $white;
+    color: #FFF;
   }
 }
 
 .btn-yellow {
-  background-color: $yellow;
+  background-color: #dab92d;
   color: #fff;
   &:hover {
     background-color: #ffd83a;
-    color: $white;
+    color: #FFF;
   }
 }
 
 .error-msg {
-  background-color: $black;
+  background-color: #000000;
   color: #00ff00;
   padding: 2px;
   margin: 2px;
